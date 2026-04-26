@@ -2,9 +2,9 @@ import { Script } from '../script/Script';
 import { BufferWriter } from '../buffer/BufferWriter';
 
 export type OutputJSON = {
-  satoshis: number,
-  script: string
-}
+  satoshis: number;
+  script: string;
+};
 
 /**
  * Instantiate an Output from an Object

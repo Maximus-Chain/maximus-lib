@@ -27,7 +27,7 @@ describe('Output', function () {
   it('throws error with unrecognized argument', function () {
     (function () {
       var out = new Output(12345);
-    }.should.throw(TypeError));
+    }).should.throw(TypeError);
   });
 
   it('can be assigned a satoshi amount in big number', function () {
@@ -53,7 +53,7 @@ describe('Output', function () {
           satoshis: -100,
           script: Script.empty(),
         });
-      }.should.throw('Output satoshis is not a natural number'));
+      }).should.throw('Output satoshis is not a natural number');
     });
 
     it('1.1', function () {
@@ -62,7 +62,7 @@ describe('Output', function () {
           satoshis: 1.1,
           script: Script.empty(),
         });
-      }.should.throw('Output satoshis is not a natural number'));
+      }).should.throw('Output satoshis is not a natural number');
     });
 
     it('NaN', function () {
@@ -71,7 +71,7 @@ describe('Output', function () {
           satoshis: NaN,
           script: Script.empty(),
         });
-      }.should.throw('Output satoshis is not a natural number'));
+      }).should.throw('Output satoshis is not a natural number');
     });
 
     it('Infinity', function () {
@@ -80,7 +80,7 @@ describe('Output', function () {
           satoshis: Infinity,
           script: Script.empty(),
         });
-      }.should.throw('Output satoshis is not a natural number'));
+      }).should.throw('Output satoshis is not a natural number');
     });
   });
 

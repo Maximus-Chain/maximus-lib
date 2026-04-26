@@ -157,7 +157,7 @@ describe('Point', function () {
         '0000000000000000000000000000000000000000000000000000000000000000';
       (function () {
         var p = Point(x, y);
-      }.should.throw('Invalid y value for curve.'));
+      }).should.throw('Invalid y value for curve.');
     });
 
     it('should describe this point as invalid because of invalid y', function () {
@@ -167,7 +167,7 @@ describe('Point', function () {
         '00000000000000000000000000000000000000000000000000000000000000FF';
       (function () {
         var p = Point(x, y);
-      }.should.throw('Invalid y value for curve.'));
+      }).should.throw('Invalid y value for curve.');
     });
 
     it('should describe this point as invalid because out of curve bounds', function () {
@@ -181,7 +181,7 @@ describe('Point', function () {
       (function () {
         // set the point
         var p = Point(x, y);
-      }.should.throw('Point does not lie on the curve'));
+      }).should.throw('Point does not lie on the curve');
     });
 
     it('should describe this point as invalid because out of curve bounds', function () {
@@ -192,7 +192,7 @@ describe('Point', function () {
       (function () {
         // set the point
         var p = Point.fromX(false, x);
-      }.should.throw('Invalid X'));
+      }).should.throw('Invalid X');
     });
   });
 });

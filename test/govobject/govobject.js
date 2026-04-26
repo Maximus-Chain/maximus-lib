@@ -49,19 +49,13 @@ describe('GovObject', function () {
         ._verifyAddress('MNp1kq62cz1S6rroBAaBkWEUdjz4EEWBMf', 'livenet')
         .should.equal(true);
       govObject
-        ._verifyAddress(
-          'MNp1kq62cz1S6rroBAaBkWE&&Udjz4EEWBMf',
-          'livenet'
-        )
+        ._verifyAddress('MNp1kq62cz1S6rroBAaBkWE&&Udjz4EEWBMf', 'livenet')
         .should.equal(false);
       govObject
         ._verifyAddress('MNp1kq62cz1S6rroBAaBkWEUdjz', 'livenet')
         .should.equal(false);
       govObject
-        ._verifyAddress(
-          'MNp1kq62cz1S6rroBAaBkWE&&Udjz',
-          'livenet'
-        )
+        ._verifyAddress('MNp1kq62cz1S6rroBAaBkWE&&Udjz', 'livenet')
         .should.equal(false);
       govObject
         ._verifyAddress('MNp1kq62cz1S6rroBAaBkWEUdjz4', 'livenet')

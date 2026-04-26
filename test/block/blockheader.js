@@ -47,7 +47,7 @@ describe('BlockHeader', function () {
   it('should not make an empty block', function () {
     (function () {
       BlockHeader();
-    }.should.throw('Unrecognized argument for BlockHeader'));
+    }).should.throw('Unrecognized argument for BlockHeader');
   });
 
   describe('#constructor', function () {
@@ -79,9 +79,9 @@ describe('BlockHeader', function () {
           bits: bits,
           nonce: nonce,
         });
-      }.should.throw(
+      }).should.throw(
         'Argument object hash property does not match block hash.'
-      ));
+      );
     });
   });
 

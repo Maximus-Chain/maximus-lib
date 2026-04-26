@@ -21,9 +21,7 @@ describe('ip', function () {
       expect(addressBuffer).to.be.deep.equal(expectedBuffer);
     });
     it('Should accept only zero ipv6, if ipv6 is passed as an arg, as implemented in dashcore', function () {
-      var zeroaddressBuffer = ip.ipAndPortToBuffer(
-        '[::]:0'
-      );
+      var zeroaddressBuffer = ip.ipAndPortToBuffer('[::]:0');
       expect(zeroaddressBuffer.length).to.be.equal(18);
       expect(zeroaddressBuffer).to.be.deep.equal(Buffer.alloc(18));
       expect(ip.ipAndPortToBuffer.bind(this, '[0:0:0:fa:0:0:0:0]:0')).to.throw(

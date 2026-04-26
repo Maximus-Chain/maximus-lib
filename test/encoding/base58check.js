@@ -51,7 +51,7 @@ describe('Base58Check', function () {
     it('should throw an error when the input is not a buffer', function () {
       (function () {
         Base58Check.encode('string');
-      }.should.throw('Input must be a buffer'));
+      }).should.throw('Input must be a buffer');
     });
   });
 
@@ -63,13 +63,13 @@ describe('Base58Check', function () {
     it('should throw an error when input is not a string', function () {
       (function () {
         Base58Check.decode(5);
-      }.should.throw('Input must be a string'));
+      }).should.throw('Input must be a string');
     });
 
     it('should throw an error when input is too short', function () {
       (function () {
         Base58Check.decode(enc.slice(0, 1));
-      }.should.throw('Input string too short'));
+      }).should.throw('Input string too short');
     });
 
     it('should throw an error when there is a checksum mismatch', function () {
@@ -78,7 +78,7 @@ describe('Base58Check', function () {
       var enc2 = Base58.encode(buf2);
       (function () {
         Base58Check.decode(enc2);
-      }.should.throw('Checksum mismatch'));
+      }).should.throw('Checksum mismatch');
     });
   });
 

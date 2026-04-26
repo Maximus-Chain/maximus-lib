@@ -57,7 +57,7 @@ describe('Base58', function () {
     it('should throw an error when the Input is not a buffer', function () {
       (function () {
         Base58.encode('string');
-      }.should.throw('Input should be a buffer'));
+      }).should.throw('Input should be a buffer');
     });
   });
 
@@ -69,7 +69,7 @@ describe('Base58', function () {
     it('should throw an error when Input is not a string', function () {
       (function () {
         Base58.decode(5);
-      }.should.throw('Input should be a string'));
+      }).should.throw('Input should be a string');
     });
   });
 

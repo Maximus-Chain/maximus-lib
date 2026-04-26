@@ -80,7 +80,7 @@ describe('URI', function () {
   it('fails on creation with no params', function () {
     (function () {
       return new URI();
-    }.should.throw(TypeError));
+    }).should.throw(TypeError);
   });
 
   it('do not need new keyword', function () {
@@ -127,7 +127,7 @@ describe('URI', function () {
         return new URI(
           'dash:MEfwVPUDkeY4pVpK3McS93mggPs7YG1wmg?amount=1.2&other=param&req-required=param'
         );
-      }.should.throw(Error));
+      }).should.throw(Error);
     });
 
     it('has no false negative when checking supported features', function () {
@@ -174,7 +174,7 @@ describe('URI', function () {
         address: 'MEfwVPUDkeY4pVpK3McS93mggPs7YG1wmg',
         'req-required': 'param',
       });
-    }.should.throw(Error));
+    }).should.throw(Error);
 
     uri = new URI(
       {

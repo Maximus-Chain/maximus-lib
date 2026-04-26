@@ -17,28 +17,27 @@ var output1 = Output.fromObject({
   satoshis: 1000,
   script: Script.buildPublicKeyHashOut(
     Address.fromString('MPaS8WY2564vXu6xye8UzYV18mGUZEq1w6', 'mainnet')
-  ).toHex()
+  ).toHex(),
 });
 
 var output2 = Output.fromObject({
   satoshis: 2000,
   script: Script.buildPublicKeyHashOut(
     Address.fromString('3FJW2PMhm44dh1zwnH2EFrBtxqjpYdFVQC', 'mainnet')
-  ).toHex()
+  ).toHex(),
 });
-
 
 var validAssetLockPayloadJSON = {
   version: 1,
-  creditOutputs: [
-    output1.toJSON(),
-    output2.toJSON()
-  ]
+  creditOutputs: [output1.toJSON(), output2.toJSON()],
 };
 // Contains same data as JSON above
-var validAssetLockPayload = AssetLockPayload.fromJSON(validAssetLockPayloadJSON);
+var validAssetLockPayload = AssetLockPayload.fromJSON(
+  validAssetLockPayloadJSON
+);
 var validAssetLockPayloadBuffer = validAssetLockPayload.toBuffer();
-var validAssetLockPayloadHexString = validAssetLockPayloadBuffer.toString('hex');
+var validAssetLockPayloadHexString =
+  validAssetLockPayloadBuffer.toString('hex');
 
 describe('AssetLockPayload', function () {
   describe('.fromBuffer', function () {
@@ -55,10 +54,7 @@ describe('AssetLockPayload', function () {
 
       expect(payload).to.be.an.instanceOf(AssetLockPayload);
       expect(payload.version).to.be.equal(1);
-      expect(payload.creditOutputs).to.deep.equal([
-        output1,
-        output2
-      ]);
+      expect(payload.creditOutputs).to.deep.equal([output1, output2]);
       expect(payload.validate.callCount).to.be.equal(1);
     });
 
@@ -90,11 +86,7 @@ describe('AssetLockPayload', function () {
 
       expect(payload).to.be.an.instanceOf(AssetLockPayload);
       expect(payload.version).to.be.equal(1);
-      expect(payload.creditOutputs)
-        .to.deep.equal([
-          output1,
-          output2
-        ]);
+      expect(payload.creditOutputs).to.deep.equal([output1, output2]);
     });
   });
 
@@ -134,18 +126,16 @@ describe('AssetLockPayload', function () {
     });
 
     describe('creditOutputs', function () {
-      it('should not allow empty array', function() {
+      it('should not allow empty array', function () {
         var payload = validAssetLockPayload.copy();
         payload.creditOutputs = [];
 
         expect(function () {
           payload.validate();
-        }).to.throw(
-          'Invalid Argument: Empty credit outputs'
-        );
+        }).to.throw('Invalid Argument: Empty credit outputs');
       });
 
-      it('should allow only instances of Output', function() {
+      it('should allow only instances of Output', function () {
         var payload = validAssetLockPayload.copy();
         payload.creditOutputs.push('Test');
 
@@ -156,18 +146,18 @@ describe('AssetLockPayload', function () {
         );
       });
 
-      it('should allow only P2PKH Outputs', function() {
+      it('should allow only P2PKH Outputs', function () {
         var payload = validAssetLockPayload.copy();
-        payload.creditOutputs.push(Output.fromObject({
-          satoshis: 1000,
-          script: Script.buildDataOut('0x0')
-        }));
+        payload.creditOutputs.push(
+          Output.fromObject({
+            satoshis: 1000,
+            script: Script.buildDataOut('0x0'),
+          })
+        );
 
         expect(function () {
           payload.validate();
-        }).to.throw(
-          'Invalid Argument: Credit output 2 is not P2PKH'
-        );
+        }).to.throw('Invalid Argument: Credit output 2 is not P2PKH');
       });
     });
   });
@@ -187,8 +177,9 @@ describe('AssetLockPayload', function () {
       var payloadJSON = payload.toJSON();
 
       expect(payloadJSON.version).to.be.equal(payload.version);
-      expect(payloadJSON.creditOutputs)
-        .to.deep.equal(payload.creditOutputs.map(output => output.toJSON()));
+      expect(payloadJSON.creditOutputs).to.deep.equal(
+        payload.creditOutputs.map((output) => output.toJSON())
+      );
     });
     it('Should call #validate', function () {
       var payload = AssetLockPayload.fromJSON(validAssetLockPayloadJSON);
@@ -214,10 +205,7 @@ describe('AssetLockPayload', function () {
       var restoredPayload = AssetLockPayload.fromBuffer(serializedPayload);
 
       expect(restoredPayload.version).to.be.equal(payload.version);
-      expect(payload.creditOutputs).to.deep.equal([
-        output1,
-        output2
-      ]);
+      expect(payload.creditOutputs).to.deep.equal([output1, output2]);
     });
     it('Should call #validate', function () {
       var payload = AssetLockPayload.fromJSON(validAssetLockPayloadJSON);

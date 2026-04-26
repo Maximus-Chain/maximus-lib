@@ -327,7 +327,9 @@ describe('PrivateKey', function () {
     });
 
     it('outputs "uncompressed" for uncompressed imported WIFs', function () {
-      var privkey = PrivateKey.fromWIF('3XwE4HTeqhWctepExLk6DbrvLaoWhPgcUcLWMF6NEYeQbYpJWnR');
+      var privkey = PrivateKey.fromWIF(
+        '3XwE4HTeqhWctepExLk6DbrvLaoWhPgcUcLWMF6NEYeQbYpJWnR'
+      );
       privkey
         .inspect()
         .should.equal(

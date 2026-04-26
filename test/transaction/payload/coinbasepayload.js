@@ -248,7 +248,9 @@ describe('CoinbasePayload', function () {
 
       expect(function () {
         payload.validate();
-      }).to.throw('Invalid Argument: Expect bestCLHeight to be an unsigned integer');
+      }).to.throw(
+        'Invalid Argument: Expect bestCLHeight to be an unsigned integer'
+      );
     });
     it('Should allow only 96 bytes as bestCLSignature', function () {
       var payload = validCoinbasePayload.copy();
@@ -266,7 +268,9 @@ describe('CoinbasePayload', function () {
 
       expect(function () {
         payload.validate();
-      }).to.throw('Invalid Argument: Expect assetLockedAmount to be an instance of BN');
+      }).to.throw(
+        'Invalid Argument: Expect assetLockedAmount to be an instance of BN'
+      );
     });
     it('Should allow only unsigned integer as assetLockedAmount', function () {
       var payload = validCoinbasePayload.copy();
@@ -275,7 +279,9 @@ describe('CoinbasePayload', function () {
 
       expect(function () {
         payload.validate();
-      }).to.throw('Invalid Argument: Expect assetLockedAmount to be an unsigned integer');
+      }).to.throw(
+        'Invalid Argument: Expect assetLockedAmount to be an unsigned integer'
+      );
     });
   });
 
@@ -299,7 +305,9 @@ describe('CoinbasePayload', function () {
         payload.merkleRootMNList
       );
       expect(payloadJSON.bestCLHeight).to.be.equal(payload.bestCLHeight);
-      expect(payloadJSON.bestCLSignature).to.be.equal(payload.bestCLSignature.toString('hex'));
+      expect(payloadJSON.bestCLSignature).to.be.equal(
+        payload.bestCLSignature.toString('hex')
+      );
       expect(payloadJSON.assetLockedAmount).to.be.deep.equal(
         payload.assetLockedAmount
       );

@@ -25,7 +25,7 @@ describe('Mnemonic', function () {
       it('should fail with invalid data', function () {
         (function () {
           return new Mnemonic({});
-        }.should.throw(errors.InvalidArgument));
+        }).should.throw(errors.InvalidArgument);
       });
 
       it('should fail with unknown word list', function () {
@@ -33,7 +33,7 @@ describe('Mnemonic', function () {
           return new Mnemonic(
             'pilots foster august tomorrow kit daughter unknown awesome model town village master'
           );
-        }.should.throw(errors.UnknownWordlist));
+        }).should.throw(errors.UnknownWordlist);
       });
 
       it('should fail with invalid mnemonic', function () {
@@ -41,13 +41,13 @@ describe('Mnemonic', function () {
           return new Mnemonic(
             'monster foster august tomorrow kit daughter unknown awesome model town village pilot'
           );
-        }.should.throw(errors.InvalidMnemonic));
+        }).should.throw(errors.InvalidMnemonic);
       });
 
       it('should fail with invalid ENT', function () {
         (function () {
           return new Mnemonic(64);
-        }.should.throw(errors.InvalidArgument));
+        }).should.throw(errors.InvalidArgument);
       });
 
       it('constructor defaults to english worldlist', function () {
@@ -179,19 +179,19 @@ describe('Mnemonic', function () {
     it('Mnemonic.fromSeed should fail with invalid wordlist', function () {
       (function () {
         return Mnemonic.fromSeed(Buffer.alloc(1));
-      }.should.throw(errors.InvalidArgument));
+      }).should.throw(errors.InvalidArgument);
     });
 
     it('Mnemonic.fromSeed should fail with invalid seed', function () {
       (function () {
         return Mnemonic.fromSeed();
-      }.should.throw(errors.InvalidArgument));
+      }).should.throw(errors.InvalidArgument);
     });
 
     it('Constructor should fail with invalid seed', function () {
       (function () {
         return new Mnemonic(Buffer.alloc(1));
-      }.should.throw(errors.InvalidEntropy));
+      }).should.throw(errors.InvalidEntropy);
     });
 
     // To add new vectors for different languages:

@@ -13,8 +13,7 @@ describe('PublicKeyInput', function () {
     txid: '7f3b688cb224ed83e12d9454145c26ac913687086a0a62f2ae0bc10934a4030f',
     vout: 0,
     address: 'mXKsrF49ugsGMdzqJtNmGTmvdL2F5U7RWG',
-    scriptPubKey:
-      '76a914a626b527c6a0162d8b484cc4014780ead9d088af88ac',
+    scriptPubKey: '76a914a626b527c6a0162d8b484cc4014780ead9d088af88ac',
     amount: 50,
     confirmations: 104,
     spendable: true,

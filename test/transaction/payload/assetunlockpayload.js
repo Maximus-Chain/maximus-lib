@@ -17,30 +17,37 @@ var output1 = Output.fromObject({
   satoshis: 1000,
   script: Script.buildPublicKeyHashOut(
     Address.fromString('MPaS8WY2564vXu6xye8UzYV18mGUZEq1w6', 'mainnet')
-  ).toHex()
+  ).toHex(),
 });
 
 var output2 = Output.fromObject({
   satoshis: 2000,
   script: Script.buildPublicKeyHashOut(
     Address.fromString('3FJW2PMhm44dh1zwnH2EFrBtxqjpYdFVQC', 'mainnet')
-  ).toHex()
+  ).toHex(),
 });
-
 
 var validAssetUnlockPayloadJSON = {
   version: 1,
   index: 301,
   fee: 70000,
   requestHeight: 1317,
-  quorumHash: '4acfa5c6d92071d206da5b767039d42f24e7ab1a694a5b8014cddc088311e448',
-  quorumSig: 'aee468c03feec7caada0599457136ef0dfe9365657a42ef81bb4aa53af383d05d90552b2cd23480cae24036b953ba8480d2f98291271a338e4235265dea94feacb54d1fd96083151001eff4156e7475e998154a8e6082575e2ee461b394d24f7'
+  quorumHash:
+    '4acfa5c6d92071d206da5b767039d42f24e7ab1a694a5b8014cddc088311e448',
+  quorumSig:
+    'aee468c03feec7caada0599457136ef0dfe9365657a42ef81bb4aa53af383d05d90552b2cd23480cae24036b953ba8480d2f98291271a338e4235265dea94feacb54d1fd96083151001eff4156e7475e998154a8e6082575e2ee461b394d24f7',
 };
 
 // Contains same data as JSON above
-var validAssetUnlockPayload = AssetUnlockPayload.fromJSON(validAssetUnlockPayloadJSON);
-var validAssetUnlockPayloadHexString = "012d0100000000000070110100250500004acfa5c6d92071d206da5b767039d42f24e7ab1a694a5b8014cddc088311e448aee468c03feec7caada0599457136ef0dfe9365657a42ef81bb4aa53af383d05d90552b2cd23480cae24036b953ba8480d2f98291271a338e4235265dea94feacb54d1fd96083151001eff4156e7475e998154a8e6082575e2ee461b394d24f7";
-var validAssetUnlockPayloadBuffer = Buffer.from(validAssetUnlockPayloadHexString, "hex")
+var validAssetUnlockPayload = AssetUnlockPayload.fromJSON(
+  validAssetUnlockPayloadJSON
+);
+var validAssetUnlockPayloadHexString =
+  '012d0100000000000070110100250500004acfa5c6d92071d206da5b767039d42f24e7ab1a694a5b8014cddc088311e448aee468c03feec7caada0599457136ef0dfe9365657a42ef81bb4aa53af383d05d90552b2cd23480cae24036b953ba8480d2f98291271a338e4235265dea94feacb54d1fd96083151001eff4156e7475e998154a8e6082575e2ee461b394d24f7';
+var validAssetUnlockPayloadBuffer = Buffer.from(
+  validAssetUnlockPayloadHexString,
+  'hex'
+);
 
 describe('AssetUnlockPayload', function () {
   describe('.fromBuffer', function () {
@@ -53,16 +60,12 @@ describe('AssetUnlockPayload', function () {
     });
 
     it('Should return instance of AssetUnlockPayload and call #validate on it', function () {
-      var payload = AssetUnlockPayload.fromBuffer(validAssetUnlockPayloadBuffer);
+      var payload = AssetUnlockPayload.fromBuffer(
+        validAssetUnlockPayloadBuffer
+      );
 
-      const {
-        version,
-        index,
-        fee,
-        requestHeight,
-        quorumHash,
-        quorumSig
-      } = validAssetUnlockPayloadJSON;
+      const { version, index, fee, requestHeight, quorumHash, quorumSig } =
+        validAssetUnlockPayloadJSON;
 
       expect(payload).to.be.an.instanceOf(AssetUnlockPayload);
       expect(payload.version).to.be.equal(version);
@@ -101,14 +104,8 @@ describe('AssetUnlockPayload', function () {
       var payload = AssetUnlockPayload.fromJSON(validAssetUnlockPayloadJSON);
 
       expect(payload).to.be.an.instanceOf(AssetUnlockPayload);
-      const {
-        version,
-        index,
-        fee,
-        requestHeight,
-        quorumHash,
-        quorumSig
-      } = validAssetUnlockPayloadJSON;
+      const { version, index, fee, requestHeight, quorumHash, quorumSig } =
+        validAssetUnlockPayloadJSON;
 
       expect(payload).to.be.an.instanceOf(AssetUnlockPayload);
       expect(payload.version).to.be.equal(version);
@@ -230,25 +227,33 @@ describe('AssetUnlockPayload', function () {
 
       expect(function () {
         payload.validate();
-      }).to.throw('Invalid Argument: Expect requestHeight to be an unsigned integer');
+      }).to.throw(
+        'Invalid Argument: Expect requestHeight to be an unsigned integer'
+      );
 
       payload.requestHeight = 1.5;
 
       expect(function () {
         payload.validate();
-      }).to.throw('Invalid Argument: Expect requestHeight to be an unsigned integer');
+      }).to.throw(
+        'Invalid Argument: Expect requestHeight to be an unsigned integer'
+      );
 
       payload.requestHeight = '12';
 
       expect(function () {
         payload.validate();
-      }).to.throw('Invalid Argument: Expect requestHeight to be an unsigned integer');
+      }).to.throw(
+        'Invalid Argument: Expect requestHeight to be an unsigned integer'
+      );
 
       payload.requestHeight = Buffer.from('0a0f', 'hex');
 
       expect(function () {
         payload.validate();
-      }).to.throw('Invalid Argument: Expect requestHeight to be an unsigned integer');
+      }).to.throw(
+        'Invalid Argument: Expect requestHeight to be an unsigned integer'
+      );
 
       payload.requestHeight = 123;
 
@@ -328,14 +333,8 @@ describe('AssetUnlockPayload', function () {
 
       var payloadJSON = payload.toJSON();
 
-      const {
-        version,
-        index,
-        fee,
-        requestHeight,
-        quorumHash,
-        quorumSig
-      } = validAssetUnlockPayloadJSON;
+      const { version, index, fee, requestHeight, quorumHash, quorumSig } =
+        validAssetUnlockPayloadJSON;
 
       expect(payload).to.be.an.instanceOf(AssetUnlockPayload);
       expect(payload.version).to.be.equal(version);
@@ -368,14 +367,8 @@ describe('AssetUnlockPayload', function () {
       var serializedPayload = payload.toBuffer();
       var restoredPayload = AssetUnlockPayload.fromBuffer(serializedPayload);
 
-      const {
-        version,
-        index,
-        fee,
-        requestHeight,
-        quorumHash,
-        quorumSig
-      } = validAssetUnlockPayloadJSON;
+      const { version, index, fee, requestHeight, quorumHash, quorumSig } =
+        validAssetUnlockPayloadJSON;
 
       expect(restoredPayload).to.be.an.instanceOf(AssetUnlockPayload);
       expect(restoredPayload.version).to.be.equal(version);

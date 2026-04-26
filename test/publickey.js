@@ -26,27 +26,27 @@ describe('PublicKey', function () {
     it('errors if data is missing', function () {
       (function () {
         return new PublicKey();
-      }.should.throw(
+      }).should.throw(
         'First argument is required, please include public key data.'
-      ));
+      );
     });
 
     it('errors if an invalid point is provided', function () {
       (function () {
         return new PublicKey(invalidPoint);
-      }.should.throw('Point does not lie on the curve'));
+      }).should.throw('Point does not lie on the curve');
     });
 
     it('errors if a point not on the secp256k1 curve is provided', function () {
       (function () {
         return new PublicKey(new Point(1000, 1000));
-      }.should.throw('Point does not lie on the curve'));
+      }).should.throw('Point does not lie on the curve');
     });
 
     it('errors if the argument is of an unrecognized type', function () {
       (function () {
         return new PublicKey(new Error());
-      }.should.throw('First argument is an unrecognized data format.'));
+      }).should.throw('First argument is an unrecognized data format.');
     });
   });
 
@@ -214,7 +214,7 @@ describe('PublicKey', function () {
     it('should error because paramater is not a point', function () {
       (function () {
         PublicKey.fromPoint(new Error());
-      }.should.throw('First argument must be an instance of Point.'));
+      }).should.throw('First argument must be an instance of Point.');
     });
   });
 
@@ -260,7 +260,7 @@ describe('PublicKey', function () {
     it('should error because not an instance of privkey', function () {
       (function () {
         PublicKey.fromPrivateKey(new Error());
-      }.should.throw('Must be an instance of PrivateKey'));
+      }).should.throw('Must be an instance of PrivateKey');
     });
   });
 
@@ -315,7 +315,7 @@ describe('PublicKey', function () {
             'hex'
           )
         );
-      }.should.throw());
+      }).should.throw();
     });
 
     it('should throw error because not a buffer', function () {
@@ -323,7 +323,7 @@ describe('PublicKey', function () {
         PublicKey.fromBuffer(
           '091ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a'
         );
-      }.should.throw('Must be a hex buffer of DER encoded public key'));
+      }).should.throw('Must be a hex buffer of DER encoded public key');
     });
 
     it('should throw error because buffer is the incorrect length', function () {
@@ -334,7 +334,7 @@ describe('PublicKey', function () {
             'hex'
           )
         );
-      }.should.throw('Length of x and y must be 32 bytes'));
+      }).should.throw('Length of x and y must be 32 bytes');
     });
   });
 
@@ -389,7 +389,7 @@ describe('PublicKey', function () {
             'hex'
           )
         );
-      }.should.throw());
+      }).should.throw();
     });
   });
 
@@ -445,7 +445,7 @@ describe('PublicKey', function () {
       );
       (function () {
         return PublicKey.fromX(null, x);
-      }.should.throw('Must specify whether y is odd or not (true or false)'));
+      }).should.throw('Must specify whether y is odd or not (true or false)');
     });
   });
 
@@ -616,7 +616,7 @@ describe('PublicKey', function () {
         '041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a0000000000000000000000000000000000000000000000000000000000000000';
       (function () {
         return PublicKey.fromString(hex);
-      }.should.throw('Invalid y value for curve.'));
+      }).should.throw('Invalid y value for curve.');
     });
 
     it('should throw an error if pubkey is invalid', function () {
@@ -624,13 +624,13 @@ describe('PublicKey', function () {
         '041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a00000000000000000000000000000000000000000000000000000000000000FF';
       (function () {
         return PublicKey.fromString(hex);
-      }.should.throw('Invalid y value for curve.'));
+      }).should.throw('Invalid y value for curve.');
     });
 
     it('should throw an error if pubkey is infinity', function () {
       (function () {
         return new PublicKey(Point.getG().mul(Point.getN()));
-      }.should.throw('Point cannot be equal to Infinity'));
+      }).should.throw('Point cannot be equal to Infinity');
     });
   });
 });

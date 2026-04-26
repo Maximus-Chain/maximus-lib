@@ -185,7 +185,11 @@ export class Transaction {
    * @param {number=} threshold
    */
   from(
-    utxo: Transaction.fromObjectParams[] | Transaction.fromObjectParams | UnspentOutput | UnspentOutput[],
+    utxo:
+      | Transaction.fromObjectParams[]
+      | Transaction.fromObjectParams
+      | UnspentOutput
+      | UnspentOutput[],
     pubkeys?: any[],
     threshold?: number
   ): Transaction;

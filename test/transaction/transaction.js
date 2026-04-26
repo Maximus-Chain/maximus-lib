@@ -83,7 +83,7 @@ describe('Transaction', function () {
         'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ',
         NaN
       );
-    }.should.throw('Amount is expected to be a positive integer'));
+    }).should.throw('Amount is expected to be a positive integer');
   });
 
   it('returns the fee correctly', function () {
@@ -1108,7 +1108,7 @@ describe('Transaction', function () {
       'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458';
     (function () {
       var tx2 = new Transaction(txObj);
-    }.should.throw('Hash in object does not match transaction hash'));
+    }).should.throw('Hash in object does not match transaction hash');
   });
 
   describe('inputAmount + outputAmount', function () {

@@ -7,7 +7,7 @@ import { Output, OutputJSON } from '../Output';
  */
 export type AssetLockPayloadJSON = {
   version: number;
-  creditOutputs: OutputJSON[]
+  creditOutputs: OutputJSON[];
 };
 
 /**
@@ -55,5 +55,5 @@ export class AssetLockPayload {
   copy(): AssetLockPayload;
 
   version: number;
-  creditOutputs: Output[]
+  creditOutputs: Output[];
 }

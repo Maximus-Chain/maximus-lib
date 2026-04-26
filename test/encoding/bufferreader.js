@@ -297,9 +297,9 @@ describe('BufferReader', function () {
       var br = new BufferReader(buf);
       (function () {
         br.readVarintNum();
-      }.should.throw(
+      }).should.throw(
         'number too large to retain precision - use readVarintBN'
-      ));
+      );
     });
 
     it('should not throw an error on a 9 byte varint not over the javascript uint precision limit', function () {
@@ -309,9 +309,9 @@ describe('BufferReader', function () {
       var br = new BufferReader(buf);
       (function () {
         br.readVarintNum();
-      }.should.not.throw(
+      }).should.not.throw(
         'number too large to retain precision - use readVarintBN'
-      ));
+      );
     });
   });
 

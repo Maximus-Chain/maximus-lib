@@ -13,22 +13,26 @@ var validMnHfSignalPayloadJSON = {
   version: 1,
   signal: {
     versionBit: 10,
-    quorumHash: '00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627',
-    sig: 'a12bc6a3d43e76fd6ab5d48dff11998811747bf51ffe722d9fda93ae892e4b18a716f58045c86459d0dafd38ae1f7f520519002983fc307e92fa606c3eb5ac8cf6ca03a102889866d58c9207b483e0b975baee63c1202209293ff7393222f812'
-  }
+    quorumHash:
+      '00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627',
+    sig: 'a12bc6a3d43e76fd6ab5d48dff11998811747bf51ffe722d9fda93ae892e4b18a716f58045c86459d0dafd38ae1f7f520519002983fc307e92fa606c3eb5ac8cf6ca03a102889866d58c9207b483e0b975baee63c1202209293ff7393222f812',
+  },
 };
 
 // Contains same data as JSON above
-var validMnHfSignalPayload = MnHfSignalPayload.fromJSON(validMnHfSignalPayloadJSON);
+var validMnHfSignalPayload = MnHfSignalPayload.fromJSON(
+  validMnHfSignalPayloadJSON
+);
 var validMnHfSignalPayloadBuffer = validMnHfSignalPayload.toBuffer();
-var validMnHfSignalPayloadHexString = validMnHfSignalPayloadBuffer.toString('hex');
+var validMnHfSignalPayloadHexString =
+  validMnHfSignalPayloadBuffer.toString('hex');
 
 // An example of an actual MnHfSignal in hex format
-var mainnetMnHfSignalHex = '010a00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627a12bc6a3d43e76fd6ab5d48dff11998811747bf51ffe722d9fda93ae892e4b18a716f58045c86459d0dafd38ae1f7f520519002983fc307e92fa606c3eb5ac8cf6ca03a102889866d58c9207b483e0b975baee63c1202209293ff7393222f812';
+var mainnetMnHfSignalHex =
+  '010a00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627a12bc6a3d43e76fd6ab5d48dff11998811747bf51ffe722d9fda93ae892e4b18a716f58045c86459d0dafd38ae1f7f520519002983fc307e92fa606c3eb5ac8cf6ca03a102889866d58c9207b483e0b975baee63c1202209293ff7393222f812';
 var mainnetMnHfSignalBuffer = Buffer.from(mainnetMnHfSignalHex, 'hex');
 
 describe('MnHfSignalPayload', function () {
-
   describe('.fromBuffer', function () {
     beforeEach(function () {
       sinon.spy(MnHfSignalPayload.prototype, 'validate');
@@ -44,8 +48,12 @@ describe('MnHfSignalPayload', function () {
       expect(payload).to.be.an.instanceOf(MnHfSignalPayload);
       expect(payload.version).to.be.equal(1);
       expect(payload.signal.versionBit).to.be.equal(10);
-      expect(payload.signal.quorumHash).to.be.equal('00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627');
-      expect(payload.signal.sig).to.be.equal(validMnHfSignalPayloadJSON.signal.sig);
+      expect(payload.signal.quorumHash).to.be.equal(
+        '00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627'
+      );
+      expect(payload.signal.sig).to.be.equal(
+        validMnHfSignalPayloadJSON.signal.sig
+      );
       expect(payload.validate.callCount).to.be.equal(1);
     });
 
@@ -78,8 +86,12 @@ describe('MnHfSignalPayload', function () {
       expect(payload).to.be.an.instanceOf(MnHfSignalPayload);
       expect(payload.version).to.be.equal(1);
       expect(payload.signal.versionBit).to.be.equal(10);
-      expect(payload.signal.quorumHash).to.be.equal('00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627');
-      expect(payload.signal.sig).to.be.equal(validMnHfSignalPayloadJSON.signal.sig);
+      expect(payload.signal.quorumHash).to.be.equal(
+        '00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627'
+      );
+      expect(payload.signal.sig).to.be.equal(
+        validMnHfSignalPayloadJSON.signal.sig
+      );
     });
   });
 
@@ -126,7 +138,9 @@ describe('MnHfSignalPayload', function () {
 
       expect(function () {
         payload.validate();
-      }).to.throw('Invalid Argument: Expect signal.versionBit to be an unsigned 8-bit integer');
+      }).to.throw(
+        'Invalid Argument: Expect signal.versionBit to be an unsigned 8-bit integer'
+      );
 
       payload.signal.versionBit = 10;
 
@@ -135,7 +149,9 @@ describe('MnHfSignalPayload', function () {
 
       expect(function () {
         payload.validate();
-      }).to.throw('Invalid Argument: Expect signal.quorumHash to be a valid 32-byte SHA256 hex string');
+      }).to.throw(
+        'Invalid Argument: Expect signal.quorumHash to be a valid 32-byte SHA256 hex string'
+      );
 
       payload.signal.quorumHash = validMnHfSignalPayloadJSON.signal.quorumHash;
 
@@ -144,7 +160,9 @@ describe('MnHfSignalPayload', function () {
 
       expect(function () {
         payload.validate();
-      }).to.throw('Invalid Argument: Expect signal.sig to be a valid 96-byte hex string');
+      }).to.throw(
+        'Invalid Argument: Expect signal.sig to be a valid 96-byte hex string'
+      );
 
       payload.signal.sig = validMnHfSignalPayloadJSON.signal.sig;
 
@@ -214,8 +232,12 @@ describe('MnHfSignalPayload', function () {
       expect(payload).to.be.an.instanceOf(MnHfSignalPayload);
       expect(payload.version).to.be.equal(1);
       expect(payload.signal.versionBit).to.be.equal(10);
-      expect(payload.signal.quorumHash).to.be.equal('00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627');
-      expect(payload.signal.sig).to.be.equal(validMnHfSignalPayloadJSON.signal.sig);
+      expect(payload.signal.quorumHash).to.be.equal(
+        '00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627'
+      );
+      expect(payload.signal.sig).to.be.equal(
+        validMnHfSignalPayloadJSON.signal.sig
+      );
     });
 
     it('Should serialize MnHfSignalPayload back to hex and match the original MnHfSignal hex', function () {

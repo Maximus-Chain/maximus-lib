@@ -9,11 +9,11 @@
  */
 export type AssetUnlockPayloadJSON = {
   version: number;
-  index: number,
-  fee: number,
-  requestHeight: number,
-  quorumHash: string,
-  quorumSig: string,
+  index: number;
+  fee: number;
+  requestHeight: number;
+  quorumHash: string;
+  quorumSig: string;
 };
 
 /**
@@ -38,7 +38,9 @@ export class AssetUnlockPayload {
    * @param {string|AssetUnlockPayloadJSON} payloadJson
    * @return {AssetUnlockPayload}
    */
-  static fromJSON(payloadJson: string | AssetUnlockPayloadJSON): AssetUnlockPayload;
+  static fromJSON(
+    payloadJson: string | AssetUnlockPayloadJSON
+  ): AssetUnlockPayload;
 
   /**
    * Validates payload data

@@ -16,32 +16,37 @@ var HDPublicKey = bitcore.HDPublicKey;
 var Base58Check = bitcore.encoding.Base58Check;
 var Networks = bitcore.Networks;
 
-var xprivkey = 'xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi';
-var xpubkey = 'xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8';
-var xpubkey256bit = 'dptp1CLkexeadp6guoi8Fbiwq6CLZm3hT1DJLwHsxWvwYSeAhjenFhcQ9HumZSftfZEr4dyQjFD7gkM5bSn6Aj7F1Jve8KTn4JsMEaj9dFyJkYs4Ga5HSUqeajxGVmzaY1pEioDmvUtZL3J1NCDCmzQ'
-var xpubkeyTestnet = 'tpubD6NzVbkrYhZ4WZaiWHz59q5EQ61bd6dUYfU4ggRWAtNAyyYRNWT6ktJ7UHJEXURvTfTfskFQmK7Ff4FRkiRN5wQH8nkGAb6aKB4Yyeqsw5m';
-var json = '{"network":"livenet","depth":0,"fingerPrint":876747070,"parentFingerPrint":0,"childIndex":0,"chainCode":"873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d508","publicKey":"0339a36013301597daef41fbe593a02cc513d0b55527ec2df1050e2e8ff49c85c2","checksum":-1421395167,"xpubkey":"xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8"}';
-var derived_0_1_200000 = 'xpub6BqyndF6rkBNTV6LXwiY8Pco8aqctqq7tGEUdA8fmGDTnDJphn2fmxr3eM8Lm3m8TrNUsLbEjHvpa3adBU18YpEx4tp2Zp6nqax3mQkudhX';
+var xprivkey =
+  'xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi';
+var xpubkey =
+  'xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8';
+var xpubkey256bit =
+  'dptp1CLkexeadp6guoi8Fbiwq6CLZm3hT1DJLwHsxWvwYSeAhjenFhcQ9HumZSftfZEr4dyQjFD7gkM5bSn6Aj7F1Jve8KTn4JsMEaj9dFyJkYs4Ga5HSUqeajxGVmzaY1pEioDmvUtZL3J1NCDCmzQ';
+var xpubkeyTestnet =
+  'tpubD6NzVbkrYhZ4WZaiWHz59q5EQ61bd6dUYfU4ggRWAtNAyyYRNWT6ktJ7UHJEXURvTfTfskFQmK7Ff4FRkiRN5wQH8nkGAb6aKB4Yyeqsw5m';
+var json =
+  '{"network":"livenet","depth":0,"fingerPrint":876747070,"parentFingerPrint":0,"childIndex":0,"chainCode":"873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d508","publicKey":"0339a36013301597daef41fbe593a02cc513d0b55527ec2df1050e2e8ff49c85c2","checksum":-1421395167,"xpubkey":"xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8"}';
+var derived_0_1_200000 =
+  'xpub6BqyndF6rkBNTV6LXwiY8Pco8aqctqq7tGEUdA8fmGDTnDJphn2fmxr3eM8Lm3m8TrNUsLbEjHvpa3adBU18YpEx4tp2Zp6nqax3mQkudhX';
 
-describe('HDPublicKey interface', function() {
-
-  var expectFail = function(func, errorType) {
-    (function() {
+describe('HDPublicKey interface', function () {
+  var expectFail = function (func, errorType) {
+    (function () {
       func();
-    }.should.throw(errorType));
+    }).should.throw(errorType);
   };
 
   var expectDerivationFail = function (argument, error) {
     (function () {
       var pubkey = new HDPublicKey(xpubkey);
       pubkey.derive(argument);
-    }.should.throw(error));
+    }).should.throw(error);
   };
 
   var expectFailBuilding = function (argument, error) {
     (function () {
       return new HDPublicKey(argument);
-    }.should.throw(error));
+    }).should.throw(error);
   };
 
   describe('creation formats', function () {
@@ -174,7 +179,7 @@ describe('HDPublicKey interface', function() {
       roundTrip.xpubkey.should.equal(xpubkey);
     });
 
-    it('should roundtrip to an equivalent object DIP14 256-bit', function() {
+    it('should roundtrip to an equivalent object DIP14 256-bit', function () {
       var pubKey = new HDPublicKey(xpubkey256bit);
       var toBuffer = pubKey.toBuffer();
       var fromBuffer = HDPublicKey.fromBuffer(toBuffer);
@@ -182,7 +187,7 @@ describe('HDPublicKey interface', function() {
       roundTrip.xpubkey.should.equal(xpubkey256bit);
     });
 
-    it('should roundtrip to an equivalent object', function() {
+    it('should roundtrip to an equivalent object', function () {
       var pubKey = new HDPublicKey(xpubkey);
       var toBuffer = pubKey.toBuffer();
       var fromBuffer = HDPublicKey.fromBuffer(toBuffer);

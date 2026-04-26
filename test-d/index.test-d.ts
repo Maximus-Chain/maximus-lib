@@ -51,4 +51,4 @@ import type {
   TransactionSignature,
   UnspentOutput,
   ChainLockSigMessage,
-} from "..";
+} from '..';

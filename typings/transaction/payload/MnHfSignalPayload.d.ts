@@ -38,7 +38,9 @@ export class MnHfSignalPayload {
    * @param {string | MnHfSignalPayloadJSON} payloadJson - The JSON object or string representing the payload.
    * @return {MnHfSignalPayload} - Parsed MnHfSignalPayload instance.
    */
-  static fromJSON(payloadJson: string | MnHfSignalPayloadJSON): MnHfSignalPayload;
+  static fromJSON(
+    payloadJson: string | MnHfSignalPayloadJSON
+  ): MnHfSignalPayload;
 
   /**
    * Validates the payload data.

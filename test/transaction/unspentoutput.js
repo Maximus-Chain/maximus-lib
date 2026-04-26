@@ -64,7 +64,8 @@ describe('UnspentOutput', function () {
       address: 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ',
       txId: '6f9f3cd6e6c053e954f6d72b27ab6f68b4c86a315a95bafcfe0efab6e7b4ee71',
       outputIndex: 0,
-      script: 'OP_DUP OP_HASH160 20 0x88d9931ea73d60eaf7e5671efc0552b912911f2a OP_EQUALVERIFY OP_CHECKSIG',
+      script:
+        'OP_DUP OP_HASH160 20 0x88d9931ea73d60eaf7e5671efc0552b912911f2a OP_EQUALVERIFY OP_CHECKSIG',
       satoshis: 1999999,
     });
     expect(utxo.inspect()).to.equal(expected);

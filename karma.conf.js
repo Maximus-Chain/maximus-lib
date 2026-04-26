@@ -18,18 +18,22 @@ module.exports = (config) => {
           stream: require.resolve('stream-browserify'),
           path: require.resolve('path-browserify'),
           url: require.resolve('url/'),
-        }
+        },
       },
       plugins: [
         new webpack.ProvidePlugin({
-          Buffer: ["buffer", "Buffer"],
+          Buffer: ['buffer', 'Buffer'],
           process: 'process/browser',
-        })
+        }),
       ],
       module: {
         rules: [
           { test: /\.dat$/, use: 'raw-loader' },
-          { enforce: 'post', loader: "transform-loader", options: "brfs-node-15" },
+          {
+            enforce: 'post',
+            loader: 'transform-loader',
+            options: 'brfs-node-15',
+          },
         ],
       },
     },
@@ -40,8 +44,8 @@ module.exports = (config) => {
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     singleRun: false,
     browserNoActivityTimeout: 60000,
-    browserDisconnectTimeout : 60000,
-    browserDisconnectTolerance : 2,
+    browserDisconnectTimeout: 60000,
+    browserDisconnectTolerance: 2,
     concurrency: Infinity,
     plugins: [
       'karma-mocha',
@@ -55,7 +59,7 @@ module.exports = (config) => {
       FirefoxHeadless: {
         base: 'Firefox',
         flags: ['-headless'],
-      }
+      },
     },
   });
 };

@@ -75,11 +75,11 @@ export { TransactionSignature } from './typings/transaction/TransactionSignature
 export { UnspentOutput } from './typings/transaction/UnspentOutput';
 export { ChainLockSigMessage };
 
-  /**
-   * PDKBF2
-   * Credit to: https://github.com/stayradiated/pbkdf2-sha512
-   * Copyright (c) 2014, JP Richardson Copyright (c) 2010-2011 Intalio Pte, All Rights Reserved
-   */
+/**
+ * PDKBF2
+ * Credit to: https://github.com/stayradiated/pbkdf2-sha512
+ * Copyright (c) 2014, JP Richardson Copyright (c) 2010-2011 Intalio Pte, All Rights Reserved
+ */
 export function pbkdf2(): void;
 
 /**
@@ -300,8 +300,8 @@ export namespace JSUtil {
 export namespace crypto {
   export { BN };
   export { Point };
-  export { Signature }
-  export { Hash }
+  export { Signature };
+  export { Hash };
 }
 
 export namespace ZmqMessages {
