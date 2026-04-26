@@ -10,11 +10,6 @@ export default defineConfig({
     hookTimeout: 30000,
     // Use forks pool for better compatibility with crypto modules
     pool: 'forks',
-    poolOptions: {
-      forks: {
-        singleFork: true,
-      },
-    },
     coverage: {
       provider: 'v8',
       include: ['lib/**/*.js'],

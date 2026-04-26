@@ -3,6 +3,8 @@
 
 'use strict';
 
+var chai = require('chai');
+var should = chai.should();
 var Transaction = require('../../lib/transaction');
 
 var vectors_valid = require('../data/bitcoind/tx_valid.json');
