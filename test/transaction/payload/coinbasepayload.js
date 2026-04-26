@@ -72,8 +72,12 @@ describe('CoinbasePayload', function () {
   });
 
   describe('.fromJSON', function () {
-    before(function () {
+    beforeEach(function () {
       sinon.spy(CoinbasePayload.prototype, 'validate');
+    });
+
+    afterEach(function () {
+      CoinbasePayload.prototype.validate.restore();
     });
 
     it('Should return instance of CoinbasePayload and call #validate on it', function () {
@@ -87,10 +91,6 @@ describe('CoinbasePayload', function () {
       expect(payload.bestCLSignature).to.be.deep.equal(bestCLSignature);
       expect(payload.assetLockedAmount).to.be.deep.equal(assetLockedAmount);
       expect(payload.validate.callCount).to.be.equal(1);
-    });
-
-    after(function () {
-      CoinbasePayload.prototype.validate.restore();
     });
   });
 

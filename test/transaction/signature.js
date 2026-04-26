@@ -17,7 +17,7 @@ var PrivateKey = bitcore.PrivateKey;
 var errors = bitcore.errors;
 
 describe('TransactionSignature', function () {
-  var fromAddress = 'yYo3PeSBv2rMnJeyLUCCzx4Y8VhPppZKkC';
+  var fromAddress = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
   var privateKey = 'cSBnVM4xvxarwGQuAfQFwqDg9k5tErHUHzgWsEfD4zdwUasvqRVY';
   var simpleUtxoWith100000Satoshis = {
     address: fromAddress,

@@ -151,7 +151,7 @@ describe('Interpreter', function () {
       );
       var publicKey = privateKey.publicKey;
       var fromAddress = publicKey.toAddress();
-      var toAddress = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
+      var toAddress = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
       var scriptPubkey = Script.buildPublicKeyHashOut(fromAddress);
       var utxo = {
         address: fromAddress,

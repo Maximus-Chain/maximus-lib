@@ -11,8 +11,6 @@ var errors = require('../../lib/mnemonic/errors');
 var bip39_vectors = require('./data/fixtures.json');
 
 describe('Mnemonic', function () {
-  this.timeout(30000);
-
   it('should initialize the class', function () {
     should.exist(Mnemonic);
   });

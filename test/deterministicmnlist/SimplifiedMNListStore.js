@@ -13,8 +13,6 @@ let sml4848;
 //   This work is postponed since Core 0.18.1
 //   requires the fixture update on more time soon
 describe.skip('SimplifiedMNListStore', function () {
-  this.timeout(15000);
-
   beforeEach(() => {
     smlDiffArray = SMNListFixture.getChainlockDiffArray();
     sml4848 = SimplifiedMNListStore.fromJSON(sml4848Json);

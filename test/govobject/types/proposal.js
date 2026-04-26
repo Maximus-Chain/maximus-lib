@@ -20,14 +20,14 @@ var errors = bitcore.errors;
 // TODO: create Proposal from object
 
 describe('Proposal', function () {
-  var startDate = Math.round(new Date('2015-10-10').getTime() / 1000);
-  var endDate = Math.round(new Date('2025-10-10').getTime() / 1000);
+  var startDate = Math.round(new Date('2026-04-01').getTime() / 1000);
+  var endDate = Math.round(new Date('2027-04-01').getTime() / 1000);
   var validJSONProposal = {
     network: 'testnet',
     name: 'TestProposal',
     start_epoch: startDate,
     end_epoch: endDate,
-    payment_address: 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh',
+    payment_address: 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ',
     payment_amount: 10,
     type: 1,
     url: 'http://www.dash.org',
@@ -38,7 +38,7 @@ describe('Proposal', function () {
     proposal.network = 'testnet';
     proposal.end_epoch = endDate;
     proposal.name = 'TestProposal';
-    proposal.payment_address = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
+    proposal.payment_address = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
     proposal.payment_amount = 10;
     proposal.start_epoch = startDate;
     proposal.type = 1;
@@ -53,7 +53,7 @@ describe('Proposal', function () {
     proposal.network = 'testnet';
     proposal.end_epoch = 1477872000;
     proposal.name = 'TestProposal';
-    proposal.payment_address = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
+    proposal.payment_address = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
     proposal.payment_amount = 10;
     proposal.start_epoch = 'not a date'; // invalid date
     proposal.type = 1;
@@ -69,7 +69,7 @@ describe('Proposal', function () {
     proposal.network = 'testnet';
     proposal.end_epoch = 'not a date';
     proposal.name = 'TestProposal';
-    proposal.payment_address = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
+    proposal.payment_address = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
     proposal.payment_amount = 10;
     proposal.start_epoch = 1477872000;
     proposal.type = 1;
@@ -86,7 +86,7 @@ describe('Proposal', function () {
     proposal.network = 'testnet';
     proposal.end_epoch = 1472688000;
     proposal.name = 'TestProposal';
-    proposal.payment_address = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
+    proposal.payment_address = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
     proposal.payment_amount = 10;
     proposal.start_epoch = 1477872000;
     proposal.type = 1;
@@ -106,7 +106,7 @@ describe('Proposal', function () {
     proposal.network = 'testnet';
     proposal.end_epoch = end_epoch;
     proposal.name = 'TestProposal';
-    proposal.payment_address = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
+    proposal.payment_address = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
     proposal.payment_amount = 10;
     proposal.start_epoch = start_epoch;
     proposal.type = 1;
@@ -140,7 +140,7 @@ describe('Proposal', function () {
     proposal.network = 'testnet';
     proposal.end_epoch = endDate;
     proposal.name = 'TestProposal';
-    proposal.payment_address = '8tS9fgiv8XAmTXxWqJBv7zbeS4jzrGGwxT';
+    proposal.payment_address = '5riVgFQyhFyWVAUGQDYmE4VBbEwrBmx4vF';
     proposal.payment_amount = 10;
     proposal.start_epoch = startDate;
     proposal.type = 1;
@@ -150,7 +150,7 @@ describe('Proposal', function () {
     proposal2.network = 'livenet';
     proposal2.end_epoch = endDate;
     proposal2.name = 'Proposal-36-DashATM';
-    proposal2.payment_address = '7Z7X2jaqMtzsr2oHpSn89cNaEC16DYByz3';
+    proposal2.payment_address = '33MGnVKxizjNm8VfEHDXqBagBi9FGRuCfo';
     proposal2.payment_amount = 1625.487;
     proposal2.start_epoch = startDate;
     proposal2.type = 1;
@@ -170,7 +170,7 @@ describe('Proposal', function () {
     proposal.network = 'testnet';
     proposal.end_epoch = endDate;
     proposal.name = 'TestProposal';
-    proposal.payment_address = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
+    proposal.payment_address = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
     proposal.payment_amount = '';
     proposal.start_epoch = startDate;
     proposal.type = 1;
@@ -187,7 +187,7 @@ describe('Proposal', function () {
     proposal.network = 'testnet';
     proposal.end_epoch = endDate;
     proposal.name = 'TestProposal';
-    proposal.payment_address = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
+    proposal.payment_address = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
     proposal.payment_amount = 10;
     proposal.start_epoch = startDate;
     proposal.type = 1;
@@ -204,7 +204,7 @@ describe('Proposal', function () {
     proposal.network = 'testnet';
     proposal.end_epoch = endDate;
     proposal.name = 'Test Proposal';
-    proposal.payment_address = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
+    proposal.payment_address = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
     proposal.payment_amount = 10;
     proposal.start_epoch = startDate;
     proposal.type = 1;
@@ -220,7 +220,7 @@ describe('Proposal', function () {
       name: 'TestProposal',
       start_epoch: startDate,
       end_epoch: endDate,
-      payment_address: 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh',
+      payment_address: 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ',
       payment_amount: 10,
       type: 1,
       url: 'http://www.dash.org',
@@ -236,7 +236,7 @@ describe('Proposal', function () {
       name: 'TestProposal',
       start_epoch: startDate,
       end_epoch: endDate,
-      payment_address: 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh',
+      payment_address: 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ',
       payment_amount: 10,
       type: 1,
       url: 'http://www.dash.org',
@@ -272,7 +272,7 @@ describe('Proposal', function () {
     var jsonProposal = {
       start_epoch: startDate,
       end_epoch: endDate,
-      payment_address: 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh',
+      payment_address: 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ',
       payment_amount: 10,
       type: 1,
       url: 'http://www.dash.org',
@@ -541,18 +541,18 @@ describe('Proposal', function () {
   });
   it('should parse a serialised datahex proposal', function () {
     var datahex1 =
-      '7b22656e645f65706f6368223a313531393834383631392c226e616d65223a226768696a6b6c6d6e6f707172737475767778797a3031323334353637383931353139303937393437222c227061796d656e745f61646472657373223a2279696b354841675641676a48316f5a4b6a63446676636632326277424e6253597a42222c227061796d656e745f616d6f756e74223a31302c2273746172745f65706f6368223a313531393039373934372c2274797065223a312c2275726c223a2268747470733a2f2f7777772e6461736863656e7472616c2e6f72672f702f746573745f70726f706f73616c5f31353139303937393437227d';
+      '7b22656e645f65706f6368223a313531393834383631392c226e616d65223a226768696a6b6c6d6e6f707172737475767778797a3031323334353637383931353139303937393437222c227061796d656e745f61646472657373223a226d6562796a756a717347707a556f4e6a313245374e72565239554374315a416b5551222c227061796d656e745f616d6f756e74223a31302c2273746172745f65706f6368223a313531393039373934372c2274797065223a312c2275726c223a2268747470733a2f2f7777772e6461736863656e7472616c2e6f72672f702f746573745f70726f706f73616c5f31353139303937393437227d';
     var datahex2 =
-      '7b22656e645f65706f6368223a20313532323934373237392c20226e616d65223a2022746573742d6e617465222c20227061796d656e745f61646472657373223a20227953614559626252714e6a34504b626342397577364d50696448776f42426e687461222c20227061796d656e745f616d6f756e74223a2035352c202273746172745f65706f6368223a20313531373739393134342c202274797065223a20312c202275726c223a202268747470733a2f2f697066732e696f2f697066732f516d59374b456d4a4b707837624e4451325766444a70327a647376583141545a4b57643441584168444c4361424d227d';
+      '7b22656e645f65706f6368223a20313532323934373237392c20226e616d65223a2022746573742d6e617465222c20227061796d656e745f61646472657373223a20226d4e5339314c656e5878706d724b5231535a764e596245376b41445678525752714c222c20227061796d656e745f616d6f756e74223a2035352c202273746172745f65706f6368223a20313531373739393134342c202274797065223a20312c202275726c223a202268747470733a2f2f697066732e696f2f697066732f516d59374b456d4a4b707837624e4451325766444a70327a647376583141545a4b57643441584168444c4361424d227d';
     var datahex2_array =
-      '7b22656e645f65706f6368223a313532323934373237392c226e616d65223a22746573742d6e617465222c227061796d656e745f61646472657373223a227953614559626252714e6a34504b626342397577364d50696448776f42426e687461222c227061796d656e745f616d6f756e74223a35352c2273746172745f65706f6368223a313531373739393134342c2274797065223a312c2275726c223a2268747470733a2f2f697066732e696f2f697066732f516d59374b456d4a4b707837624e4451325766444a70327a647376583141545a4b57643441584168444c4361424d227d';
+      '7b22656e645f65706f6368223a313532323934373237392c226e616d65223a22746573742d6e617465222c227061796d656e745f61646472657373223a226d4e5339314c656e5878706d724b5231535a764e596245376b41445678525752714c222c227061796d656e745f616d6f756e74223a35352c2273746172745f65706f6368223a313531373739393134342c2274797065223a312c2275726c223a2268747470733a2f2f697066732e696f2f697066732f516d59374b456d4a4b707837624e4451325766444a70327a647376583141545a4b57643441584168444c4361424d227d';
 
     var proposal1 = new Proposal(datahex1);
     expect(proposal1.toString()).to.equal(datahex1);
     expect(proposal1.type).to.equal(1);
     expect(proposal1.end_epoch).to.equal(1519848619);
     expect(proposal1.payment_address).to.equal(
-      'yik5HAgVAgjH1oZKjcDfvcf22bwBNbSYzB'
+      'mebyjujqsGpzUoNj12E7NrVR9UCt1ZAkUQ'
     );
     expect(proposal1.url).to.equal(
       'https://www.dashcentral.org/p/test_proposal_1519097947'
@@ -564,7 +564,7 @@ describe('Proposal', function () {
     expect(proposal2.type).to.equal(1);
     expect(proposal2.end_epoch).to.equal(1522947279);
     expect(proposal2.payment_address).to.equal(
-      'ySaEYbbRqNj4PKbcB9uw6MPidHwoBBnhta'
+      'mNS91LenXxpmrKR1SZvNYbE7kADVxRWRqL'
     );
     expect(proposal2.url).to.equal(
       'https://ipfs.io/ipfs/QmY7KEmJKpx7bNDQ2WfDJp2zdsvX1ATZKWd4AXAhDLCaBM'
@@ -582,4 +582,4 @@ describe('Proposal', function () {
   });
 });
 var expectedHex =
-  '7b22656e645f65706f6368223a313736303035343430302c226e616d65223a225465737450726f706f73616c222c227061796d656e745f61646472657373223a22795847654e505158594658684c414e315a4b72416a787a7a426e5a324a5a4e4b6e68222c227061796d656e745f616d6f756e74223a31302c2273746172745f65706f6368223a313434343433353230302c2274797065223a312c2275726c223a22687474703a2f2f7777772e646173682e6f7267227d';
+  '7b22656e645f65706f6368223a313830363533373630302c226e616d65223a225465737450726f706f73616c222c227061796d656e745f61646472657373223a226d5565777250565963637835464a554e6274436554427477464d79365a6837596f4a222c227061796d656e745f616d6f756e74223a31302c2273746172745f65706f6368223a313737353030313630302c2274797065223a312c2275726c223a22687474703a2f2f7777772e646173682e6f7267227d';

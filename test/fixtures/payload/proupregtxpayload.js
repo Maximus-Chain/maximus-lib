@@ -10,7 +10,7 @@ function getProUpRegPayloadJSON() {
     proTxHash: '62330c04f20acc541c8d4f3022ba2b032ea5530c476e61dc9c4235ac20d10f4f',
     pubKeyOperator: '18ece819b998a36a185e323a8749e55fd3dc2e259b741f8580fbd68cbd9f51d30f4d4da34fd5afc71859dca3cf10fbda',
     keyIDVoting: '3c05fb32367a25d8dedc16f741b8492006fb948a',
-    payoutAddress: 'yiQw1FmRannHeZYrjA1iGD2vQniqjgGENc',
+    payoutAddress: 'meGqTzpnHNt17ZNFza29iSsKXezYKLtjXF',
     inputsHash: 'ab6d7e9bb4e3cacd56dbd88f4e28a0e952a91a39f29ee7527f1a456712a509b3',
   };
 }
@@ -53,7 +53,7 @@ function getProUpRegTransactionJSON() {
           reqSigs: 1,
           type: 'pubkeyhash',
           addresses: [
-            'yMMsyo13PTnRPgW1But5dzn9uGSZtcPjhj',
+            'mHDnSY4Q63t8rgKQTKtX6EcZ28iGaQVgWZ',
           ],
         },
       },
@@ -66,7 +66,7 @@ function getProUpRegTransactionJSON() {
       pubKeyOperator:
         '18ece819b998a36a185e323a8749e55fd3dc2e259b741f8580fbd68cbd9f51d30f4d4da34fd5afc71859dca3cf10fbda',
       keyIDVoting: '3c05fb32367a25d8dedc16f741b8492006fb948a',
-      payoutAddress: 'yiQw1FmRannHeZYrjA1iGD2vQniqjgGENc',
+      payoutAddress: 'meGqTzpnHNt17ZNFza29iSsKXezYKLtjXF',
       inputsHash: 'ab6d7e9bb4e3cacd56dbd88f4e28a0e952a91a39f29ee7527f1a456712a509b3',
     },
     instantlock: false,

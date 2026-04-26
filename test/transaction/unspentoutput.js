@@ -1,6 +1,5 @@
 /* eslint-disable */
 // TODO: Remove previous line and work through linting issues at next edit
-
 'use strict';
 
 var _ = require('lodash');
@@ -13,7 +12,7 @@ var UnspentOutput = bitcore.Transaction.UnspentOutput;
 
 describe('UnspentOutput', function () {
   var sampleData1 = {
-    address: 'yYo3PeSBv2rMnJeyLUCCzx4Y8VhPppZKkC',
+    address: 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ',
     txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',
     outputIndex: 0,
     script:
@@ -23,7 +22,7 @@ describe('UnspentOutput', function () {
   var sampleData2 = {
     txid: 'e42447187db5a29d6db161661e4bc66d61c3e499690fe5ea47f87b79ca573986',
     vout: 1,
-    address: 'yLygrKXHautSYwRAF3TUGJvidxKqXwLA23',
+    address: 'mGqbK4aeHVzA1wEZWTTuiYm7kpbYBVd2E9',
     scriptPubKey: '76a914073b7eae2823efa349e3b9155b8a735526463a0f88ac',
     amount: 0.0108,
   };
@@ -53,8 +52,22 @@ describe('UnspentOutput', function () {
   it('displays nicely on the console', function () {
     var expected =
       '<UnspentOutput: a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458:0' +
-      ', satoshis: 1020000, address: yYo3PeSBv2rMnJeyLUCCzx4Y8VhPppZKkC>';
+      ', satoshis: 1020000, address: mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ>';
     expect(new UnspentOutput(sampleData1).inspect()).to.equal(expected);
+  });
+
+  it('should inspect the unspent output', function () {
+    var expected =
+      '<UnspentOutput: 6f9f3cd6e6c053e954f6d72b27ab6f68b4c86a315a95bafcfe0efab6e7b4ee71:0' +
+      ', satoshis: 1999999, address: mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ>';
+    var utxo = new UnspentOutput({
+      address: 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ',
+      txId: '6f9f3cd6e6c053e954f6d72b27ab6f68b4c86a315a95bafcfe0efab6e7b4ee71',
+      outputIndex: 0,
+      script: 'OP_DUP OP_HASH160 20 0x88d9931ea73d60eaf7e5671efc0552b912911f2a OP_EQUALVERIFY OP_CHECKSIG',
+      satoshis: 1999999,
+    });
+    expect(utxo.inspect()).to.equal(expected);
   });
 
   describe('checking the constructor parameters', function () {

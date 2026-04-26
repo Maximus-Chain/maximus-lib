@@ -122,7 +122,8 @@ describe('ChainLock', function () {
         '140f5a4db1a3330b7dfdda8fe181137b2644577efd843a60401f0dbc7b0856782578bc9d6ab1a0b133596bcc158d781d02ed4db881cb4cc3260273dc90a53c1d1ce37930fa106c47db4cf7702b2e956dcafb7b180bea7aae2d662b7a6c217f27',
     };
 
-    str4 = '7f0500000a07fdd12cf5d5ebb35bd0d0a8fd1d5557616624146b49f30a712f924aa57576b4117577aaef9d19115ff9ae45974f476c1c378879daa4f1dfe3c2b8b72df8423c483f4c6d39a61fc2181e279669108a12059634d6df232f6daae261b3c59667ce07eea6c2fc74b8a20400c66f478be5d59ecd888ebf6d677341a6d888f622c7';
+    str4 =
+      '7f0500000a07fdd12cf5d5ebb35bd0d0a8fd1d5557616624146b49f30a712f924aa57576b4117577aaef9d19115ff9ae45974f476c1c378879daa4f1dfe3c2b8b72df8423c483f4c6d39a61fc2181e279669108a12059634d6df232f6daae261b3c59667ce07eea6c2fc74b8a20400c66f478be5d59ecd888ebf6d677341a6d888f622c7';
     buf4 = Buffer.from(str4, 'hex');
 
     quorumEntryJSON4 = {
@@ -130,16 +131,21 @@ describe('ChainLock', function () {
       isOutdatedRPC: false,
       version: 3,
       llmqType: 100,
-      quorumHash: '702a256bfb71f5036c840bbfabc999d9f4ea4c9e721c68f55bd7463138a89130',
+      quorumHash:
+        '702a256bfb71f5036c840bbfabc999d9f4ea4c9e721c68f55bd7463138a89130',
       quorumIndex: 0,
       signersCount: 3,
       signers: '07',
       validMembersCount: 3,
       validMembers: '07',
-      quorumPublicKey: '8980c2da461929c2b4584d57ab0f8d016ac3f904c4adee8322766602dc9b1763a132984ad300c057d6ccb8f0f52fde09',
-      quorumVvecHash: '7de6279950d201802e0ee654b961cab12fbdc871569e903f0af177a6a7f16b62',
-      quorumSig: 'a4d2c36a94f36ebadfcceae58d1d76b958e2a6d01c71411730ac1d987d5b18ce4055fa92bace2c32daf110daa6cb69a5058e9bbdd51675f8fb5e5a0bf7b7bd24af179fa613dee5e0e3114a106b0984d633bd54aafd4a18d971163a6b320e3a5b',
-      membersSig: '874532a268d41f5d589c47ab66a85e4b89cf81aa5f02174fbd578e641ef0ac5fc8ba6fd31cdc1fe013b1f22987dd0865172735282b0bf7886e516eb08c2444829e89d0b19d337462c6e8204cacc9d9b6775d375a4ae5a3b03f9b5955ac48b5e1'
+      quorumPublicKey:
+        '8980c2da461929c2b4584d57ab0f8d016ac3f904c4adee8322766602dc9b1763a132984ad300c057d6ccb8f0f52fde09',
+      quorumVvecHash:
+        '7de6279950d201802e0ee654b961cab12fbdc871569e903f0af177a6a7f16b62',
+      quorumSig:
+        'a4d2c36a94f36ebadfcceae58d1d76b958e2a6d01c71411730ac1d987d5b18ce4055fa92bace2c32daf110daa6cb69a5058e9bbdd51675f8fb5e5a0bf7b7bd24af179fa613dee5e0e3114a106b0984d633bd54aafd4a18d971163a6b320e3a5b',
+      membersSig:
+        '874532a268d41f5d589c47ab66a85e4b89cf81aa5f02174fbd578e641ef0ac5fc8ba6fd31cdc1fe013b1f22987dd0865172735282b0bf7886e516eb08c2444829e89d0b19d337462c6e8204cacc9d9b6775d375a4ae5a3b03f9b5955ac48b5e1',
     };
 
     quorum4 = new QuorumEntry(quorumEntryJSON4);
@@ -200,7 +206,6 @@ describe('ChainLock', function () {
       });
     });
     describe('#verify', function () {
-      this.timeout(15000);
       it('should verify signature against SMLStore', async function () {
         Networks.enableRegtest();
 

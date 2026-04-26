@@ -12,39 +12,39 @@
         "confirmedHash": "404fe0b31724c080344ab9f3802c362b38e7eee98a635af2a8a01868775c7766",
         "service": "192.168.65.2:20001",
         "pubKeyOperator": "8f5eb15830ce7adf24d86a0ec5e1bcf402a8a1c79774d80ca9e8a859df02c4709268ad9e38040d8aa833f673b0ad415e",
-        "votingAddress": "yfweSP5BK3tW1xPWpicFpggLaSt18eVuhm",
+        "votingAddress": "mboYu88Y1dzDUxCv68chGvWjhK9hp9fbYA",
         "isValid": true,
         "nVersion": 2,
         "nType": 1,
         "platformHTTPPort": 3000,
         "platformNodeID": "b7d19b601bc4d55ebb63b06defa7b93383476103",
-        "payoutAddress": "yhe7aFHcg7xhkLBDTJAefCDVWcVLCyXrTX"
+        "payoutAddress": "mdW22zLyNi4RDKzciiB67S3tdUm2uby6cw"
       },
       {
         "proRegTxHash": "54f3437ed60166d8e3c40dcf155808012014ec3e7c40db282fe8bbe6357254af",
         "confirmedHash": "385377552c93008ce785bd1698ada2690496a40b14e4211172c0a38850007f85",
         "service": "192.168.65.2:20201",
         "pubKeyOperator": "b434c2e07fb84cf7dce18b93981ed37fdbc8be314f21d06aa226d00a1019dcadec0dd63bd1a427b4e9c67eebdaf8ffe5",
-        "votingAddress": "yTNyzHEWFDTTQSRt3EgxmoZSuFkwy7urE9",
+        "votingAddress": "mPEtT2HrwoZAsSFHJehQE3Pr282edhQeFu",
         "isValid": true,
         "nVersion": 2,
         "nType": 1,
         "platformHTTPPort": 3200,
         "platformNodeID": "41a3c2004687738b0cdb7b70e7c435a26058382e",
-        "payoutAddress": "yR7bqpfn2b2eaatMZBxCVJpx6Q8oabBBCA"
+        "payoutAddress": "mLyWJZj8jB8N3ahkpbxdwYfMDGQWGuKK28"
       },
       {
         "proRegTxHash": "83aa2f9697d263095d7925c319b984712620021ac7a020edc3f06cdb22615bf3",
         "confirmedHash": "5a4e038215446dc9bdcaebdf321517f364a97a794b09f4bc98f43403745deb6c",
         "service": "192.168.65.2:20101",
         "pubKeyOperator": "91c7a034f3c779abbeaa4cb1632733b6041fd7b4b64c94760937b9cdc46be8b455c77b67b3f0c7301bd3d390d46c547b",
-        "votingAddress": "ybSaxT8ebCjmtoAHr39RxrT1hDBQedW2EG",
+        "votingAddress": "mXJVRCC1HnqVMnyh7T9sR6HQp5T7PV5s5P",
         "isValid": true,
         "nVersion": 2,
         "nType": 1,
         "platformHTTPPort": 3100,
         "platformNodeID": "a719fda4a4ceaf9997b30238d9de73941f3322e2",
-        "payoutAddress": "yQLBKfZzNXdwturnpAjbdjJAJyW1dDKqTY"
+        "payoutAddress": "mLC5nQdM57jfMugC5ak35y8ZRqmiK1LmZq"
       }
     ],
     "nVersion": 2,

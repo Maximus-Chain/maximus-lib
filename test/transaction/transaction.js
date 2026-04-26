@@ -66,7 +66,7 @@ describe('Transaction', function () {
       script: testScript,
       satoshis: testAmount,
     })
-    .to('yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh', testAmount - 10000);
+    .to('mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ', testAmount - 10000);
 
   it('can serialize to a plain javascript object', function () {
     var object = testTransaction.toObject();
@@ -80,7 +80,7 @@ describe('Transaction', function () {
   it('will not accept NaN as an amount', function () {
     (function () {
       var stringTx = new Transaction().to(
-        'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh',
+        'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ',
         NaN
       );
     }.should.throw('Amount is expected to be a positive integer'));
@@ -218,7 +218,7 @@ describe('Transaction', function () {
     }).from({
       txid: '40b9d99ff299082f3bb3a92e879ece6667c12b8d71e2b85f66487fa6b0ae1bf9',
       vout: 0,
-      address: 'yZaKKq7TZf7pqmNNVvMG5Uhwpf2ZgjmyYF',
+      address: 'mVSDnaApGFDYJmBmmLMhXiYLwXJGQHYHEA',
       scriptPubKey:
         '21029b3a2cd74b9dfc543ccd18a571332dd557400b85ff999decff1e5f7275a44690ac',
       amount: 500.0,
@@ -236,7 +236,6 @@ describe('Transaction', function () {
   });
 
   describe('transaction creation test vector', function () {
-    this.timeout(5000);
     var index = 0;
     transactionVector.forEach(function (vector) {
       index++;
@@ -261,7 +260,7 @@ describe('Transaction', function () {
 
   // TODO: Migrate this into a test for inputs
 
-  var fromAddress = 'yYo3PeSBv2rMnJeyLUCCzx4Y8VhPppZKkC';
+  var fromAddress = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
   var simpleUtxoWith100000Satoshis = {
     address: fromAddress,
     txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',
@@ -281,9 +280,9 @@ describe('Transaction', function () {
     JSON.stringify(simpleUtxoWith100000Satoshis)
   );
   anyoneCanSpendUTXO.script = new Script().add('OP_TRUE');
-  var toAddress = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
-  var changeAddress = 'yLygrKXHautSYwRAF3TUGJvidxKqXwLA23';
-  var changeAddressP2SH = '8tdHAwttdvR87BihpKRSUjN6HyQNVZsqBv';
+  var toAddress = 'mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ';
+  var changeAddress = 'mGqbK4aeHVzA1wEZWTTuiYm7kpbYBVd2E9';
+  var changeAddressP2SH = '65G4HBosffAzP9k6eP6D5rTatSbmVrGDqv';
   var privateKey = 'cSBnVM4xvxarwGQuAfQFwqDg9k5tErHUHzgWsEfD4zdwUasvqRVY';
   var private1 =
     '6ce7e97e317d2af16c33db0b9270ec047a91bff3eff8558afb5014afb2bb5976';
@@ -777,7 +776,7 @@ describe('Transaction', function () {
           script: testScript,
           satoshis: testAmount,
         })
-        .to('yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh', testAmount - 10000);
+        .to('mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ', testAmount - 10000);
 
       tx.outputs[0]._satoshis = 100;
       tx.outputs[0]._satoshisBN = new BN('fffffffffffffff', 16);
@@ -793,7 +792,7 @@ describe('Transaction', function () {
           script: testScript,
           satoshis: testAmount,
         })
-        .to('yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh', testAmount - 10000);
+        .to('mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ', testAmount - 10000);
 
       tx.outputs[0]._satoshis = -100;
       tx.outputs[0]._satoshisBN = new BN(-100, 10);
@@ -809,7 +808,7 @@ describe('Transaction', function () {
           script: testScript,
           satoshis: testAmount,
         })
-        .to('yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh', testAmount - 10000);
+        .to('mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ', testAmount - 10000);
 
       tx.toBuffer = sinon.stub().returns({
         length: 10000000,
@@ -827,7 +826,7 @@ describe('Transaction', function () {
           script: testScript,
           satoshis: testAmount,
         })
-        .to('yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh', testAmount - 10000);
+        .to('mUewrPVYccx5FJUNbtCeTBtwFMy6Zh7YoJ', testAmount - 10000);
 
       tx.isCoinbase = sinon.stub().returns(false);
       tx.inputs[0].isNull = sinon.stub().returns(true);
@@ -1377,9 +1376,7 @@ describe('Transaction', function () {
 
     var validPayload = new AssetLockPayload.fromJSON({
       version: 1,
-      creditOutputs: [
-        output
-      ]
+      creditOutputs: [output],
     });
 
     it('Should set payload and size', function () {
@@ -1407,7 +1404,9 @@ describe('Transaction', function () {
       var serialized = transaction.serialize();
       var deserialized = new Transaction(serialized);
 
-      expect(deserialized.extraPayload.toJSON()).to.be.deep.equal(validPayload.toJSON());
+      expect(deserialized.extraPayload.toJSON()).to.be.deep.equal(
+        validPayload.toJSON()
+      );
       expect(deserialized.type).to.be.equal(transaction.type);
     });
 
@@ -1433,7 +1432,9 @@ describe('Transaction', function () {
       var serialized = transaction.toObject();
       var deserialized = new Transaction(serialized);
 
-      expect(deserialized.extraPayload.toJSON()).to.be.deep.equal(validPayload.toJSON());
+      expect(deserialized.extraPayload.toJSON()).to.be.deep.equal(
+        validPayload.toJSON()
+      );
       expect(deserialized.type).to.be.equal(transaction.type);
     });
     it('Should throw when trying to serialize special transaction without any payload', function () {
@@ -1467,7 +1468,6 @@ describe('Transaction', function () {
     });
   });
 
-
   describe('isSpecialTransaction', function () {
     it('Should return true if a transaction is qualified to be a special transaction', function () {
       var transaction = Transaction().setType(
@@ -1491,9 +1491,7 @@ describe('Transaction', function () {
       expect(transaction.type).to.be.equal(
         Transaction.TYPES.TRANSACTION_ASSET_LOCK
       );
-      expect(transaction.extraPayload).to.be.an.instanceOf(
-        AssetLockPayload
-      );
+      expect(transaction.extraPayload).to.be.an.instanceOf(AssetLockPayload);
     });
 
     it('Should not be able to set transaction type after it was already set', function () {
@@ -1501,9 +1499,7 @@ describe('Transaction', function () {
         Transaction.TYPES.TRANSACTION_ASSET_LOCK
       );
 
-      expect(transaction.extraPayload).to.be.an.instanceOf(
-        AssetLockPayload
-      );
+      expect(transaction.extraPayload).to.be.an.instanceOf(AssetLockPayload);
 
       expect(function () {
         transaction.setType(Transaction.TYPES.TRANSACTION_NORMAL);
@@ -1525,7 +1521,7 @@ describe('Transaction', function () {
         .from({
           txid: '51c8cc5d5f375983eb37891d66da4656aa2617ef3f82073a34dc7a76331486ff',
           vout: 0,
-          address: 'yT9Lms2ATYLd3QLA4pVpg3mQ5KiHB9Dp1b',
+          address: 'mP1FEc5XA8SLWQ9ZLEWG8HboCByynBLRcX',
           scriptPubKey:
             '210316dd99f0c194577d9f60ebfc889bdaf013f7bfd990acdf71b26d5eef14597c96ac',
           amount: 345.18076547,
@@ -1535,7 +1531,7 @@ describe('Transaction', function () {
           ps_rounds: -2,
         })
         .addBurnOutput(10000, Buffer.from(publicKeyHash, 'hex'))
-        .to('yT9Lms2ATYLd3QLA4pVpg3mQ5KiHB9Dp1b', 34518076547 - 11000);
+        .to('mP1FEc5XA8SLWQ9ZLEWG8HboCByynBLRcX', 34518076547 - 11000);
 
       var restoredPubKey =
         transaction.outputs[0].script.chunks[1].buf.toString('hex');
@@ -1549,7 +1545,7 @@ describe('Transaction', function () {
           .from({
             txid: '51c8cc5d5f375983eb37891d66da4656aa2617ef3f82073a34dc7a76331486ff',
             vout: 0,
-            address: 'yT9Lms2ATYLd3QLA4pVpg3mQ5KiHB9Dp1b',
+            address: 'mP1FEc5XA8SLWQ9ZLEWG8HboCByynBLRcX',
             scriptPubKey:
               '210316dd99f0c194577d9f60ebfc889bdaf013f7bfd990acdf71b26d5eef14597c96ac',
             amount: 345.18076547,
@@ -1559,7 +1555,7 @@ describe('Transaction', function () {
             ps_rounds: -2,
           })
           .addBurnOutput(10000, Buffer.alloc(30))
-          .to('yT9Lms2ATYLd3QLA4pVpg3mQ5KiHB9Dp1b', 34518076547 - 11000);
+          .to('mP1FEc5XA8SLWQ9ZLEWG8HboCByynBLRcX', 34518076547 - 11000);
       }).to.throw('Expect public key hash to be 20 bytes long');
     });
   });
@@ -1575,7 +1571,7 @@ describe('Transaction', function () {
         .from({
           txid: '51c8cc5d5f375983eb37891d66da4656aa2617ef3f82073a34dc7a76331486ff',
           vout: 0,
-          address: 'yT9Lms2ATYLd3QLA4pVpg3mQ5KiHB9Dp1b',
+          address: 'mP1FEc5XA8SLWQ9ZLEWG8HboCByynBLRcX',
           scriptPubKey:
             '210316dd99f0c194577d9f60ebfc889bdaf013f7bfd990acdf71b26d5eef14597c96ac',
           amount: 345.18076547,
@@ -1585,13 +1581,15 @@ describe('Transaction', function () {
           ps_rounds: -2,
         })
         .addBurnOutput(10000, Buffer.from(publicKeyHash, 'hex'))
-        .to('yT9Lms2ATYLd3QLA4pVpg3mQ5KiHB9Dp1b', 34518076547 - 11000);
+        .to('mP1FEc5XA8SLWQ9ZLEWG8HboCByynBLRcX', 34518076547 - 11000);
 
       expect(transaction.hash).to.be.equal(txHash);
 
       var outPointBuffer = transaction.getOutPointBuffer(0);
 
-      expect(outPointBuffer.toString('hex')).to.be.equal(transaction._getHash().toString('hex') + indexHex);
+      expect(outPointBuffer.toString('hex')).to.be.equal(
+        transaction._getHash().toString('hex') + indexHex
+      );
       expect(outPointBuffer.length).to.be.equal(36);
     });
 
@@ -1602,7 +1600,7 @@ describe('Transaction', function () {
           .from({
             txid: '51c8cc5d5f375983eb37891d66da4656aa2617ef3f82073a34dc7a76331486ff',
             vout: 0,
-            address: 'yT9Lms2ATYLd3QLA4pVpg3mQ5KiHB9Dp1b',
+            address: 'mP1FEc5XA8SLWQ9ZLEWG8HboCByynBLRcX',
             scriptPubKey:
               '210316dd99f0c194577d9f60ebfc889bdaf013f7bfd990acdf71b26d5eef14597c96ac',
             amount: 345.18076547,
@@ -1612,7 +1610,7 @@ describe('Transaction', function () {
             ps_rounds: -2,
           })
           .addBurnOutput(10000, Buffer.from(publicKeyHash, 'hex'))
-          .to('yT9Lms2ATYLd3QLA4pVpg3mQ5KiHB9Dp1b', 34518076547 - 11000)
+          .to('mP1FEc5XA8SLWQ9ZLEWG8HboCByynBLRcX', 34518076547 - 11000)
           .getOutPointBuffer(10);
       }).to.throw("There's no output with such index in the transaction");
     });

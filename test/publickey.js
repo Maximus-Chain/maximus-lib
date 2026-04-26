@@ -64,14 +64,14 @@ describe('PublicKey', function () {
     it('problematic secp256k1 public keys', function () {
       var knownKeys = [
         {
-          wif: 'XEwen6QcoX8MUF3Hg3V8QQH65BAozu3Fhfb2uS8wXDW8tCsm8zQ9',
+          wif: 'CA9K2GvaDgwcmVLCLGZvhx5Fy8FfJv4UhgEDiqSjBVHKZWArvjd8',
           priv: '6d1229a6b24c2e775c062870ad26bc261051e0198c67203167273c7c62538846',
           pub: '03d6106302d2698d6a41e9c9a114269e7be7c6a0081317de444bb2980bf9265a01',
           pubx: 'd6106302d2698d6a41e9c9a114269e7be7c6a0081317de444bb2980bf9265a01',
           puby: 'e05fb262e64b108991a29979809fcef9d3e70cafceb3248c922c17d83d66bc9d',
         },
         {
-          wif: 'XKRbuCkYL6jZ1WHBtZfHwh6RAeHBCrJeipqZaRMQ71XuAHzwznRR',
+          wif: 'CEdG9PGVkGYpJka6Ynk6FEtb4bN2WsKsiqUkPpfBmHK5qbMtcFpd',
           priv: 'f2cc9d2b008927db94b89e04e2f6e70c180e547b3e5e564b06b8215d1c264b53',
           pub: '03e275faa35bd1e88f5df6e8f9f6edb93bdf1d65f4915efc79fd7a726ec0c21700',
           pubx: 'e275faa35bd1e88f5df6e8f9f6edb93bdf1d65f4915efc79fd7a726ec0c21700',
@@ -515,44 +515,45 @@ describe('PublicKey', function () {
         '03c87bd0e162f26969da8509cafcb7b8c8d202af30b928c582e263dd13ee9a9781'
       );
       var address = pk.toAddress('livenet');
-      address.toString().should.equal('XjnkiGYQkC3bbAzvDjP7jkNouHCHNRr3ug');
+      address.toString().should.equal('MH157SnvHVzpKuNfapiq8VJMYAVkuQTAAn');
     });
 
-    it('should output this known testnet address correctly', function () {
+    it('should output the testnet address', function () {
       var pk = new PublicKey(
         '0293126ccc927c111b88a0fe09baa0eca719e2a3e087e8a5d1059163f5c566feef'
       );
       var address = pk.toAddress('testnet');
-      address.toString().should.equal('yZKdLYCvDXa2kyQr8Tg3N6c3xeZoK7XDcj');
+      address.toString().should.equal('mVBXoHGGv7fkDyEFPsgUpLST5WqVzW2jhy');
     });
   });
 
   describe('hashes', function () {
     // wif private key, address
-    // see: https://github.com/dashpay/dash/blob/master/src/test/key_tests.cpp#L20
     var data = [
       [
-        '7qh6LYnLN2w2ntz2wwUhRUEgkQ2j8XB16FGw77ZRDZmC29bn7cD',
-        'Xywgfc872nn5CKtpATCoAjZCc4v96pJczy',
+        'C6re27kkh2uy9wUxGFjopDPTnziFrNfNqKzA8pbC6oAw2Vtfdu6S',
+        'MQkfbT62Z9g1QokrY87HpNKXasHjgiBETt',
       ],
       [
-        '7rve4MxeWFQHGbSYH6J2yaaZd3MBUqoDEwN6ZAZ6ZHmhTT4r3hW',
-        'XpmouUj9KKJ99ZuU331ZS1KqsboeFnLGgK',
+        'CE8Qt4bo8zpqTi4u7tEgiwdjVD6ApVtwjkx2WQpfjinxQz6xmXuW',
+        'MUQsp9z4H4TpDZgJRNXctcDUSBkszKdBjR',
       ],
       [
-        'XBuxZHH6TqXUuaSjbVTFR1DQSYecxCB9QA1Koyx5tTc3ddhqEnhm',
-        'XxV9h4Xmv6Pup8tVAQmH97K6grzvDwMG9F',
+        'CEHrH3rAbgXU5hwdeeFD6jcNGg5Exj6yWGLCY8m3LqiCLtVb7czC',
+        'MLs53HHjCJ6BhAr1kzqKhbGneCP9apJ1fs',
       ],
       [
-        'XHMkZqWcY6Zkoq1j42NBijD8z5N5FtNy2Wx7WyAfXX2HZgxry8cr',
-        'Xn7ZrYdExuk79Dm7CJCw7sfUWi2qWJSbRy',
+        'C9HVrKiHfw8sy1CF9WokWukFkDW5S79FkquzfPWfC9dMa8i2ha8z',
+        'MEPhNDxmmneQY5kccU4qxJoXXJLC79GNCp',
       ],
     ];
 
-    data.forEach(function (d) {
-      var publicKey = PrivateKey.fromWIF(d[0]).toPublicKey();
-      var address = Address.fromString(d[1]);
-      address.hashBuffer.should.deep.equal(publicKey._getID());
+    it('should generate addresses from WIF keys correctly', function () {
+      data.forEach(function (d) {
+        var publicKey = PrivateKey.fromWIF(d[0]).toPublicKey();
+        var address = Address.fromString(d[1]);
+        address.hashBuffer.should.deep.equal(publicKey._getID());
+      });
     });
   });
 
@@ -590,7 +591,7 @@ describe('PublicKey', function () {
 
     it('should output known compressed pubkey with network for console', function () {
       var privkey = PrivateKey.fromWIF(
-        'XHWwKGqugqSRkcpuiWyDJXSHhjWGCidZ5HLwf9ScMLaEeDTRHepq'
+        'CCibZTMs71Fh3s7pNk41c5ETbgb7Wjen5Hz8UYkQ1cMRKWs2H8wP'
       );
       var pubkey = new PublicKey(privkey);
       pubkey

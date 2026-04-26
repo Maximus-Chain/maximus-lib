@@ -39,7 +39,7 @@ describe('BloomFilter', function () {
 
   it('serialize filter with public keys added', function () {
     var privateKey = PrivateKey.fromWIF(
-      '7sQb6QHALg4XyHsJHsSNXnEHGhZfzTTUPJXJqaqK7CavQkiL9Ms'
+      'CEgmj2GHe1DrzhjuyghnLQRniF84Qco4sSyxYqe2aduuQiW2tTEv'
     );
     var publicKey = privateKey.toPublicKey();
 
@@ -48,7 +48,7 @@ describe('BloomFilter', function () {
     filter.insert(Hash.sha256ripemd160(publicKey.toBuffer()));
 
     var expectedFilter = BloomFilter.fromBuffer(
-      ParseHex('038fc16b080000000000000001')
+      ParseHex('03833b78080000000000000001')
     );
 
     filter.toBuffer().should.deep.equal(expectedFilter.toBuffer());

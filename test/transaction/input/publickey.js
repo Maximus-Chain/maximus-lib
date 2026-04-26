@@ -12,15 +12,15 @@ describe('PublicKeyInput', function () {
   var utxo = {
     txid: '7f3b688cb224ed83e12d9454145c26ac913687086a0a62f2ae0bc10934a4030f',
     vout: 0,
-    address: 'yjA6k167XHU4FqZbFWpSLTe5ivngfiJhKc',
+    address: 'mXKsrF49ugsGMdzqJtNmGTmvdL2F5U7RWG',
     scriptPubKey:
-      '2103c9594cb2ebfebcb0cfd29eacd40ba012606a197beef76f0269ed8c101e56ceddac',
+      '76a914a626b527c6a0162d8b484cc4014780ead9d088af88ac',
     amount: 50,
     confirmations: 104,
     spendable: true,
   };
   var privateKey = PrivateKey.fromWIF(
-    'cQ7tSSQDEwaxg9usnnP1Aztqvm9nCQVfNWz9kU2rdocDjknF2vd6'
+    'cSDDUYQDinRZYQNAuYrukcSM3Lk1P8TkcPT7nzJdVbHx61W7FiTa'
   );
   var address = privateKey.toAddress();
   utxo.address.should.equal(address.toString());
@@ -50,7 +50,7 @@ describe('PublicKeyInput', function () {
     tx.from(utxo);
     tx.to(destKey.toAddress(), 10000);
     var input = tx.inputs[0];
-    input._estimateSize().should.equal(73);
+    input._estimateSize().should.equal(107);
   });
 
   it("it's signature can be removed", function () {

@@ -13,7 +13,7 @@ var smlEntryJSON = {
   service: '95.183.51.146:39999',
   pubKeyOperator:
     '1326ddac1044e0219dba7dccf6b43d1deed3e897717ca06757243b02516cfa67e24026f7a317cf575b40c10e7f6bf7f0',
-  votingAddress: 'yYhmQPak2w5L8KSwVw9R5wpqzPbAJ1fK7v',
+  votingAddress: 'mUZfs8e6jXB3bKGLmM9rYBfF7Frrx6kVyk',
   isValid: true,
   nVersion: 2,
   nType: 1,
@@ -33,7 +33,7 @@ var smlEntryWithoutAddress = {
   service: '[0:0:0:0:0:0:0:0]:0',
   pubKeyOperator:
     '000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  votingAddress: 'yUTy9Fb2ULXdgyqYtMMbuUWpFLaDgUqT3f',
+  votingAddress: 'mQKsbzePAvdM9yex9mN3MiMDNCqvQD6fkL',
   isValid: false,
   nVersion: 2,
   nType: 1,
@@ -69,7 +69,7 @@ describe('SimplifiedMNListEntry', function () {
       expect(entry2.toObject()).to.be.deep.equal(smlEntryJSON);
       expect(entry1.votingAddress).to.be.equal('something');
       expect(entry2.votingAddress).to.be.equal(
-        'yYhmQPak2w5L8KSwVw9R5wpqzPbAJ1fK7v'
+        'mUZfs8e6jXB3bKGLmM9rYBfF7Frrx6kVyk'
       );
     });
   });

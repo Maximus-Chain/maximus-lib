@@ -82,11 +82,11 @@ describe('CommitmentTxPayload', function () {
   });
 
   describe('.toBuffer', function () {
-    before(function () {
+    beforeEach(function () {
       sinon.spy(CommitmentTxPayload.prototype, 'validate');
     });
 
-    after(function () {
+    afterEach(function () {
       CommitmentTxPayload.prototype.validate.restore();
     });
 
@@ -101,11 +101,11 @@ describe('CommitmentTxPayload', function () {
   });
 
   describe('.fromBuffer', function () {
-    before(function () {
+    beforeEach(function () {
       sinon.spy(CommitmentTxPayload.prototype, 'validate');
     });
 
-    after(function () {
+    afterEach(function () {
       CommitmentTxPayload.prototype.validate.restore();
     });
 

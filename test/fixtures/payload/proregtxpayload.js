@@ -13,7 +13,7 @@ function getProRegPayloadJSON() {
     keyIDOwner: '3c05fb32367a25d8dedc16f741b8492006fb948a',
     pubKeyOperator: '8273ec203d1ea62cbdb54e10618329e4ed93e99bc9c5ab2f4cb0055ad281f9ad0808a1dda6aedf12c41c53142828879b',
     keyIDVoting: '3c05fb32367a25d8dedc16f741b8492006fb948a',
-    payoutAddress: 'yh9o9kPRK1s3YsuyCBe3DEjBit2RnzhgwH',
+    payoutAddress: 'md1hcVSn1bxm1sjNTbeUfUZaqkJ8XYekds',
     operatorReward: 0,
     inputsHash: '0b5e6a319019d8f1f4b17da96964df507e417f0a0ef8ca63eaa01e33e05510bc',
   };
@@ -58,7 +58,7 @@ function getProRegTransactionJSON() {
           "reqSigs": 1,
           "type": "pubkeyhash",
           "addresses": [
-            "yUmrvMSVw2iKVVVfarMASnBRtdfvX6MLFr"
+            "mQdmP6Vrdcp2xVK4rGMbu21q1VwdBGUhS1"
           ]
         }
       }
@@ -74,7 +74,7 @@ function getProRegTransactionJSON() {
       "pubKeyOperator":
         "8273ec203d1ea62cbdb54e10618329e4ed93e99bc9c5ab2f4cb0055ad281f9ad0808a1dda6aedf12c41c53142828879b",
       "keyIDVoting": "3c05fb32367a25d8dedc16f741b8492006fb948a",
-      "payoutAddress": "yh9o9kPRK1s3YsuyCBe3DEjBit2RnzhgwH",
+      "payoutAddress": "md1hcVSn1bxm1sjNTbeUfUZaqkJ8XYekds",
       "operatorReward": 0,
       "inputsHash": "0b5e6a319019d8f1f4b17da96964df507e417f0a0ef8ca63eaa01e33e05510bc"
     },

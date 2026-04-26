@@ -18,24 +18,24 @@ var MultiSigInput = bitcore.Transaction.Input.MultiSig;
 
 describe('MultiSigInput', function () {
   var privateKey1 = new PrivateKey(
-    'XBK4nzpDtLX1xZjoAFq7LJEAu2JgnJgqA7ZPK1eCLHd9AXSx1M6L'
+    'CCgYWmj4bAGjZQzoxSJXMEr3UY59GpsXkWCsBgmdz7Vv6DX6xBAe'
   );
   var privateKey2 = new PrivateKey(
-    'XJTmEqmpWSB9EAHRaAmXAy9RJ8G143fUgAyBMwU7QwuyfJdx2tPY'
+    'C77vTzXwCSQinX5yk5FE614hkJbAfKheMjzqJwrL5dV5jVNUHbXh'
   );
   var privateKey3 = new PrivateKey(
-    'XJGNyNYMZLPKcnzMq1uFuQATaneh78efRb2QqzEr9GeD77wn2KwS'
+    'CB5N8mopsoaxscB4cF52YxCnDy5MjT3WpbFjWFGKAGAKtAMYZX6R'
   );
   var public1 = privateKey1.publicKey;
   var public2 = privateKey2.publicKey;
   var public3 = privateKey3.publicKey;
-  var address = new Address('7UiEaDrcNXj1bCQJf1Yc54xkFNr8Ef4sTV');
+  var address = new Address('39tFCJArd6x5sPZMnTigdjHtb1yabX9n25');
 
   var output = {
     txId: '66e64ef8a3b384164b78453fa8c8194de9a473ba14f89485a0e433699daec140',
     outputIndex: 0,
     script: new Script(
-      '5221025c95ec627038e85b5688a9b3d84d28c5ebe66e8c8d697d498e20fe96e3b1ab1d2102cdddfc974d41a62f1f80081deee70592feb7d6e6cf6739d6592edbe7946720e72103c95924e02c240b5545089c69c6432447412b58be43fd671918bd184a5009834353ae'
+      '52210234b264af1324252c52aa08de8e4897d9372babb1d08fa1d5ee1c7dd45b673aa9210398dd5418b47f734d5b15441296853272705233eadfc2c17b20453af57f46edea2103b85e3ffee38f3b33952b9b2bf44f716d546f313f0a29f352506fd038022fd5b653ae'
     ),
     satoshis: 1000000,
   };
@@ -143,7 +143,7 @@ describe('MultiSigInput', function () {
   });
   it('can parse list of signature buffers, from TX signed with key 1 and 2', function () {
     var transaction = new Transaction(
-      '010000000140c1ae9d6933e4a08594f814ba73a4e94d19c8a83f45784b1684b3a3f84ee666000000009200473044022012bd2f15e56ab1b63d5ee23e194ed995ad4b81a21bcb8e0d913e5e791c07f7280220278bdb6b54cdc608193c869affe28dc2f700902218122770faff25c56142102b01483045022100e74e9955e042aca36f4f3ad907a0926c5b85e5d9608b0678a78a9cbc0259c7a2022053ff761e5f9a80558db7023e45c4979ac3c19a423f0184fb0596d3da308cc4b501ffffffff0140420f000000000017a91419438da7d16709643be5abd8df62ca4034a489a78700000000'
+      '030000000140c1ae9d6933e4a08594f814ba73a4e94d19c8a83f45784b1684b3a3f84ee666000000009300483045022100c0739575580a2e18033471d397de231643aaf64563ee2ce93d9db845a1b2ad9002207008948c5ccb2183cbaef27db2550dc9fa8c117f66899165b66e908c94afda8c01483045022100b114052fdcdeb337ced9f4de7b59609e748d01ea818c2281559ba23e12c6db3f02202595b4b7f2365ce7dd7c7122a51f11583cd63ce96822232cf99f74ac415dd3fb01ffffffff0140420f000000000017a91459e0a911ce0a7f96b97918309caa31cfea89627f8700000000'
     );
 
     var inputObj = transaction.inputs[0].toObject();
@@ -180,7 +180,7 @@ describe('MultiSigInput', function () {
   });
   it('can parse list of signature buffers, from TX signed with key 3 and 1', function () {
     var transaction = new Transaction(
-      '010000000140c1ae9d6933e4a08594f814ba73a4e94d19c8a83f45784b1684b3a3f84ee666000000009300483045022100fc39ce4f51b2766ec8e978296e0594ea4578a3eb2543722fd4053e92bf16e6b1022030f739868397a881b019508b9c725a5c69a3652cb8928027748e93e67dfaef5501483045022100e74e9955e042aca36f4f3ad907a0926c5b85e5d9608b0678a78a9cbc0259c7a2022053ff761e5f9a80558db7023e45c4979ac3c19a423f0184fb0596d3da308cc4b501ffffffff0140420f000000000017a91419438da7d16709643be5abd8df62ca4034a489a78700000000'
+      '030000000140c1ae9d6933e4a08594f814ba73a4e94d19c8a83f45784b1684b3a3f84ee66600000000920047304402207b5063edfe9953210e9e65f4625194cdc7c5cd5cfe4599acb42a80ba7132128902204043e85c40edf9efbbb8cdf07d3c921206aff404cdd2b98d947c3bba2345cb4d01483045022100b114052fdcdeb337ced9f4de7b59609e748d01ea818c2281559ba23e12c6db3f02202595b4b7f2365ce7dd7c7122a51f11583cd63ce96822232cf99f74ac415dd3fb01ffffffff0140420f000000000017a91459e0a911ce0a7f96b97918309caa31cfea89627f8700000000'
     );
 
     var inputObj = transaction.inputs[0].toObject();

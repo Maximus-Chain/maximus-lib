@@ -64,8 +64,12 @@ describe('MnHfSignalPayload', function () {
   });
 
   describe('.fromJSON', function () {
-    before(function () {
+    beforeEach(function () {
       sinon.spy(MnHfSignalPayload.prototype, 'validate');
+    });
+
+    afterEach(function () {
+      MnHfSignalPayload.prototype.validate.restore();
     });
 
     it('Should return instance of MnHfSignalPayload and call #validate on it', function () {
@@ -76,10 +80,6 @@ describe('MnHfSignalPayload', function () {
       expect(payload.signal.versionBit).to.be.equal(10);
       expect(payload.signal.quorumHash).to.be.equal('00000000000000107c98e94bdb9ffb729fe9c190a6d1223fd9b6700ccb79b627');
       expect(payload.signal.sig).to.be.equal(validMnHfSignalPayloadJSON.signal.sig);
-    });
-
-    after(function () {
-      MnHfSignalPayload.prototype.validate.restore();
     });
   });
 

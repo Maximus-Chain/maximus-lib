@@ -50,7 +50,7 @@ function getProUpRevTransactionJSON() {
           "reqSigs": 1,
           "type": "pubkeyhash",
           "addresses": [
-            "yiG45yiCksvpd1iLU5o3Dsj8GYRsWvGchu"
+            "me7xYimZTU2Y61XjjVoUg7ZXPQhaC7MTSf"
           ]
         }
       }

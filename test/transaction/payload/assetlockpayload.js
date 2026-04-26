@@ -16,14 +16,14 @@ var Output = DashcoreLib.Transaction.Output;
 var output1 = Output.fromObject({
   satoshis: 1000,
   script: Script.buildPublicKeyHashOut(
-    Address.fromString('XxGJLCB7BBXAgA1AbgtNDMyVpQV9yXd7oB', 'mainnet')
+    Address.fromString('MPaS8WY2564vXu6xye8UzYV18mGUZEq1w6', 'mainnet')
   ).toHex()
 });
 
 var output2 = Output.fromObject({
   satoshis: 2000,
   script: Script.buildPublicKeyHashOut(
-    Address.fromString('7hRXBxSmKqaJ6JfsVaSeZqAeyxvrxcHyV1', 'mainnet')
+    Address.fromString('3FJW2PMhm44dh1zwnH2EFrBtxqjpYdFVQC', 'mainnet')
   ).toHex()
 });
 
@@ -77,8 +77,12 @@ describe('AssetLockPayload', function () {
   });
 
   describe('.fromJSON', function () {
-    before(function () {
+    beforeEach(function () {
       sinon.spy(AssetLockPayload.prototype, 'validate');
+    });
+
+    afterEach(function () {
+      AssetLockPayload.prototype.validate.restore();
     });
 
     it('Should return instance of AssetLockPayload and call #validate on it', function () {
@@ -91,10 +95,6 @@ describe('AssetLockPayload', function () {
           output1,
           output2
         ]);
-    });
-
-    after(function () {
-      AssetLockPayload.prototype.validate.restore();
     });
   });
 

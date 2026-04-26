@@ -16,14 +16,14 @@ var Output = DashcoreLib.Transaction.Output;
 var output1 = Output.fromObject({
   satoshis: 1000,
   script: Script.buildPublicKeyHashOut(
-    Address.fromString('XxGJLCB7BBXAgA1AbgtNDMyVpQV9yXd7oB', 'mainnet')
+    Address.fromString('MPaS8WY2564vXu6xye8UzYV18mGUZEq1w6', 'mainnet')
   ).toHex()
 });
 
 var output2 = Output.fromObject({
   satoshis: 2000,
   script: Script.buildPublicKeyHashOut(
-    Address.fromString('7hRXBxSmKqaJ6JfsVaSeZqAeyxvrxcHyV1', 'mainnet')
+    Address.fromString('3FJW2PMhm44dh1zwnH2EFrBtxqjpYdFVQC', 'mainnet')
   ).toHex()
 });
 
@@ -89,8 +89,12 @@ describe('AssetUnlockPayload', function () {
   });
 
   describe('.fromJSON', function () {
-    before(function () {
+    beforeEach(function () {
       sinon.spy(AssetUnlockPayload.prototype, 'validate');
+    });
+
+    afterEach(function () {
+      AssetUnlockPayload.prototype.validate.restore();
     });
 
     it('Should return instance of AssetUnlockPayload and call #validate on it', function () {
@@ -113,10 +117,6 @@ describe('AssetUnlockPayload', function () {
       expect(payload.requestHeight).to.be.equal(requestHeight);
       expect(payload.quorumHash).to.be.equal(quorumHash);
       expect(payload.quorumSig).to.be.equal(quorumSig);
-    });
-
-    after(function () {
-      AssetUnlockPayload.prototype.validate.restore();
     });
   });
 

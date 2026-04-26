@@ -10,10 +10,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "npm run test:types && npm run test:node && npm run test:browser",
-    "test:node": "mocha $NODE_DEBUG_OPTION --no-timeout --recursive",
+    "test:node": "vitest run",
     "test:browser": "karma start ./karma.conf.js --single-run",
     "test:types": "npx tsd",
-    "coverage": "nyc mocha --recursive",
+    "coverage": "vitest run --coverage",
     "build": "webpack",
     "pretty": "npx prettier --write ."
   },
@@ -137,6 +137,7 @@
   },
   "devDependencies": {
     "@types/bloom-filter": "^0.2.1",
+    "@vitest/coverage-v8": "^2.1.9",
     "assert-browserify": "^2.0.0",
     "brfs-node-15": "^2.0.3",
     "buffer": "^6.0.3",
@@ -165,6 +166,7 @@
     "terser-webpack-plugin": "^4.1.0",
     "transform-loader": "^0.2.4",
     "url": "^0.11.0",
+    "vitest": "^2.1.9",
     "wasm-x11-hash": "^0.0.2",
     "webpack": "^5.76.2",
     "webpack-cli": "^4.7.0"

@@ -9,7 +9,7 @@ function getProUpServPayloadJSON() {
     version: 1,
     proTxHash: 'c873f15c82a7d9bbbb21e35098812eac448b6491108a94e9b1863be3a300117b',
     service: '195.141.143.49:19999',
-    operatorPayoutAddress: 'yRyv33x1PzwSTW3B2DV3XXRyr7Z5M2P4V7',
+    operatorPayoutAddress: 'mMqpVo1N6b39vVraHdVUymGNxypmzPTADo',
     inputsHash: 'ebf12c57c0eed0baa83f60658255d09ceda05d2802d46eba80643e9f7885763f',
   };
 }
@@ -51,7 +51,7 @@ function getProUpServTransactionJSON() {
           "reqSigs": 1,
           "type": "pubkeyhash",
           "addresses": [
-            "ycm2PK88JoLumDfztYdCbwfM1PnvE3gBGf"
+            "mYcvr4BV1PSdEDVQ9xde4BVk8G4cyKPcmj"
           ]
         }
       }
@@ -62,7 +62,7 @@ function getProUpServTransactionJSON() {
       "version": 1,
       "proTxHash": "c873f15c82a7d9bbbb21e35098812eac448b6491108a94e9b1863be3a300117b",
       "service": "195.141.143.49:19999",
-      "operatorPayoutAddress": "yRyv33x1PzwSTW3B2DV3XXRyr7Z5M2P4V7",
+      "operatorPayoutAddress": "mMqpVo1N6b39vVraHdVUymGNxypmzPTADo",
       "inputsHash": "ebf12c57c0eed0baa83f60658255d09ceda05d2802d46eba80643e9f7885763f"
     },
     "instantlock": false
