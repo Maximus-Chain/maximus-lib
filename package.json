@@ -95,5 +95,8 @@
     "webpack": "^5.76.2",
     "webpack-cli": "^7.0.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
