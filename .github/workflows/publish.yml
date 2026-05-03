@@ -36,9 +36,6 @@ jobs:
       - name: Run Node.js tests
         run: npm run test:node
 
-      - name: Build package
-        run: npm run build
-
       - name: Publish to GitHub Packages
         run: npm publish
         env:

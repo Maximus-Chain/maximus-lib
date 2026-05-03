@@ -1,8 +1,8 @@
 {
-  "name": "@maximuschain/maximuscore-lib",
+  "name": "@maximus-chain/maximuscore-lib",
   "version": "1.0.0",
   "description": "A pure and powerful JavaScript library for MaximusChain.",
-  "author": "MaximusChain Foundation <dev@maximuschain.com>",
+  "author": "MaximusChain",
   "main": "index.js",
   "module": "dist/maximuscore-lib.mjs",
   "unpkg": "dist/maximuscore-lib.min.js",
@@ -98,5 +98,9 @@
   "license": "MIT",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maximus-Chain/maximus-lib.git"
   }
 }
