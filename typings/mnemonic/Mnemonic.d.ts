@@ -38,7 +38,7 @@ export class Mnemonic {
    * @param {String} [wordlist] - The wordlist used
    * @returns {boolean}
    */
-  static isValid(mnemonic: string, wordlist?: string): boolean;
+  static isValid(mnemonic: string, wordlist?: string | string[]): boolean;
 
   /**
    * Internal function to check if a mnemonic belongs to a wordlist.

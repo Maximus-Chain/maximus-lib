@@ -15,7 +15,7 @@ export { BloomFilter } from './typings/BloomFilter';
 export { HDPrivateKey } from './typings/HDPrivateKey';
 export { HDPublicKey } from './typings/HDPublicKey';
 export { Message } from './typings/Message';
-export { Network } from './typings/Network';
+export { Network, Networks } from './typings/Network';
 export { Opcode } from './typings/Opcode';
 export { PrivateKey };
 

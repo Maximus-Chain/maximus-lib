@@ -4,6 +4,7 @@
   "description": "A pure and powerful JavaScript library for MaximusChain.",
   "author": "MaximusChain Foundation <dev@maximuschain.com>",
   "main": "index.js",
+  "module": "dist/maximuscore-lib.mjs",
   "unpkg": "dist/maximuscore-lib.min.js",
   "scripts": {
     "prepublishOnly": "npm run build",
@@ -11,7 +12,7 @@
     "lint:fix": "eslint . --fix",
     "test": "npm run test:types && npm run test:node && npm run test:browser",
     "test:node": "vitest run",
-    "test:browser": "npm run build && npx playwright test --project=chromium",
+    "test:browser": "npm run build && npx playwright test --config=playwright.config.mjs --project=chromium",
     "test:e2e": "npx playwright test",
     "test:types": "npx tsd",
     "coverage": "vitest run --coverage",

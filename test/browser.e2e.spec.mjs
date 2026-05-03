@@ -1,14 +1,13 @@
 /**
- * Browser tests using Playwright directly with the pre-built bundle
+ * Browser tests using Playwright with the ESM bundle
  */
 
 import { test, expect } from '@playwright/test';
 
-test.describe('Browser Environment Tests', () => {
+test.describe('Browser ESM Bundle Tests', () => {
   test.beforeEach(async ({ page }) => {
-    // Load the built library in the browser
-    await page.goto('about:blank');
-    await page.addScriptTag({ path: 'dist/maximuscore-lib.min.js' });
+    // Load the ESM bundle via a test HTML page served by http-server
+    await page.goto('http://localhost:8080/test/browser-test.html');
   });
 
   test('should load the library successfully', async ({ page }) => {

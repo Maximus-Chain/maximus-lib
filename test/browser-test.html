@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>maximuscore-lib ESM Tests</title>
+  </head>
+  <body>
+    <script type="module">
+      // Expose the ESM bundle as window.maximuscore for tests
+      import * as maximuscore from '/dist/maximuscore-lib.mjs';
+      window.maximuscore = maximuscore.default || maximuscore;
+    </script>
+  </body>
+</html>
