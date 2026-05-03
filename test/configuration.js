@@ -29,7 +29,7 @@ describe('configuration', function () {
     });
   });
 
-  after(() => {
+  afterEach(() => {
     configure({
       x11hash,
       crypto,
