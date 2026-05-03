@@ -24,8 +24,8 @@ const umdConfig = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'maximuscore-lib.min.js',
-    library: 'maximuscore',
+    filename: 'maximus-lib.min.js',
+    library: 'maximus',
     libraryTarget: 'umd',
   },
   optimization: {
@@ -65,7 +65,7 @@ const esmConfig = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'maximuscore-lib.mjs',
+    filename: 'maximus-lib.mjs',
     library: {
       type: 'module',
     },

@@ -1,11 +1,11 @@
 {
-  "name": "@maximus-chain/maximuscore-lib",
+  "name": "@maximus-chain/maximus-lib",
   "version": "1.0.0",
   "description": "A pure and powerful JavaScript library for MaximusChain.",
   "author": "MaximusChain",
   "main": "index.js",
-  "module": "dist/maximuscore-lib.mjs",
-  "unpkg": "dist/maximuscore-lib.min.js",
+  "module": "dist/maximus-lib.mjs",
+  "unpkg": "dist/maximus-lib.min.js",
   "scripts": {
     "prepublishOnly": "npm run build",
     "lint": "eslint .",

@@ -1,5 +1,5 @@
 /**
- * Browser tests for maximuscore-lib
+ * Browser tests for maximus-lib
  *
  * This file contains tests that run in the browser using Vitest + Playwright.
  * Tests use ESM syntax (import/export).

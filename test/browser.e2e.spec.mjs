@@ -41,7 +41,9 @@ test.describe('Browser ESM Bundle Tests', () => {
   test('should validate a correct livenet address', async ({ page }) => {
     const result = await page.evaluate(() => {
       try {
-        const address = new maximuscore.Address('MDPj1iqqCy23rLccUFvgC8HZq41fB8EH4y');
+        const address = new maximuscore.Address(
+          'MDPj1iqqCy23rLccUFvgC8HZq41fB8EH4y',
+        );
         return {
           success: true,
           address: address.toString(),
@@ -70,7 +72,10 @@ test.describe('Browser ESM Bundle Tests', () => {
 
   test('should validate P2PKH addresses', async ({ page }) => {
     const result = await page.evaluate(() => {
-      return maximuscore.Address.isValid('MDPj1iqqCy23rLccUFvgC8HZq41fB8EH4y', 'livenet');
+      return maximuscore.Address.isValid(
+        'MDPj1iqqCy23rLccUFvgC8HZq41fB8EH4y',
+        'livenet',
+      );
     });
 
     expect(result).toBe(true);
@@ -78,7 +83,10 @@ test.describe('Browser ESM Bundle Tests', () => {
 
   test('should validate P2SH addresses', async ({ page }) => {
     const result = await page.evaluate(() => {
-      return maximuscore.Address.isValid('3Nzip9rw7pf94n7xdbb2y4EGQgsQu7WyEa', 'livenet');
+      return maximuscore.Address.isValid(
+        '3Nzip9rw7pf94n7xdbb2y4EGQgsQu7WyEa',
+        'livenet',
+      );
     });
 
     expect(result).toBe(true);
@@ -88,7 +96,7 @@ test.describe('Browser ESM Bundle Tests', () => {
     const result = await page.evaluate(() => {
       try {
         const pk = new maximuscore.PublicKey(
-          '0285e9737a74c30a873f74df05124f2aa6f53042c2fc0a130d6cbd7d16b944b004'
+          '0285e9737a74c30a873f74df05124f2aa6f53042c2fc0a130d6cbd7d16b944b004',
         );
         return {
           success: true,
@@ -100,14 +108,16 @@ test.describe('Browser ESM Bundle Tests', () => {
     });
 
     expect(result.success).toBe(true);
-    expect(result.pkString).toBe('0285e9737a74c30a873f74df05124f2aa6f53042c2fc0a130d6cbd7d16b944b004');
+    expect(result.pkString).toBe(
+      '0285e9737a74c30a873f74df05124f2aa6f53042c2fc0a130d6cbd7d16b944b004',
+    );
   });
 
   test('should derive address from public key', async ({ page }) => {
     const result = await page.evaluate(() => {
       try {
         const pk = new maximuscore.PublicKey(
-          '0285e9737a74c30a873f74df05124f2aa6f53042c2fc0a130d6cbd7d16b944b004'
+          '0285e9737a74c30a873f74df05124f2aa6f53042c2fc0a130d6cbd7d16b944b004',
         );
         const address = maximuscore.Address.fromPublicKey(pk, 'livenet');
         return {

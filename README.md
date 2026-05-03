@@ -16,7 +16,7 @@ MaximusChain is a peer-to-peer platform for the next generation of financial tec
 ### NodeJS
 
 ```
-npm install @maximuschain/core-lib
+npm install @maximus-chain/maximus-lib
 ```
 
 ### Browser
@@ -24,9 +24,9 @@ npm install @maximuschain/core-lib
 #### CDN Standalone
 
 ```html
-<script src="https://unpkg.com/@maximuschain/core-lib"></script>
+<script src="https://unpkg.com/@maximus-chain/maximus-lib"></script>
 <script>
-  const { PrivateKey } = maximuscore;
+  const { PrivateKey } = maximus;
   const privateKey = new PrivateKey();
   const address = privateKey.toAddress().toString();
   ...
@@ -39,16 +39,16 @@ npm install @maximuschain/core-lib
 npm run build
 ```
 
-This will generate a file named `maximuscore-lib.min.js` in the `dist/` folder.
+This will generate a file named `maximus-lib.min.js` in the `dist/` folder.
 
 ## Usage
 
 ### Browser
 
 ```html
-<script src="./dist/maximuscore-lib.min.js" type="text/javascript"></script>
+<script src="./dist/maximus-lib.min.js" type="text/javascript"></script>
 <script>
-  const PrivateKey = maximuscore.PrivateKey;
+  const PrivateKey = maximus.PrivateKey;
   const privateKey = new PrivateKey();
   const address = privateKey.toAddress().toString();
 </script>
