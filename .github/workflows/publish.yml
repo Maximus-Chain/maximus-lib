@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      id-token: write
 
     steps:
       - name: Checkout repository
@@ -20,7 +20,6 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
@@ -36,6 +35,6 @@ jobs:
         run: npm run test:node
 
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish --provenance --access public
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
